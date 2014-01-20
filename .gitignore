@@ -1,0 +1,4 @@
+src/*/a
+*.tmp
+*.cmd
+*.png

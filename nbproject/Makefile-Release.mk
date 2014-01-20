@@ -35,8 +35,10 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 
 # Object Files
 OBJECTFILES= \
-	${OBJECTDIR}/_ext/2017240758/exc104.o \
-	${OBJECTDIR}/_ext/2017240758/exc105.o
+	${OBJECTDIR}/src/w1/exc102.o \
+	${OBJECTDIR}/src/w1/exc104.o \
+	${OBJECTDIR}/src/w1/exc105.o \
+	${OBJECTDIR}/src/w1/hlp011.o
 
 
 # C Compiler Flags
@@ -63,15 +65,25 @@ ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/c-numeerisetmenetelmat: ${OBJECTFILES
 	${MKDIR} -p ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}
 	${LINK.c} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/c-numeerisetmenetelmat ${OBJECTFILES} ${LDLIBSOPTIONS}
 
-${OBJECTDIR}/_ext/2017240758/exc104.o: ../../../../../fs2/home/rsirvio/NetBeansProjects/C-NumeerisetMenetelmat/src/w1/exc104.c 
-	${MKDIR} -p ${OBJECTDIR}/_ext/2017240758
+${OBJECTDIR}/src/w1/exc102.o: src/w1/exc102.c 
+	${MKDIR} -p ${OBJECTDIR}/src/w1
 	${RM} "$@.d"
-	$(COMPILE.c) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/2017240758/exc104.o ../../../../../fs2/home/rsirvio/NetBeansProjects/C-NumeerisetMenetelmat/src/w1/exc104.c
+	$(COMPILE.c) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/w1/exc102.o src/w1/exc102.c
 
-${OBJECTDIR}/_ext/2017240758/exc105.o: ../../../../../fs2/home/rsirvio/NetBeansProjects/C-NumeerisetMenetelmat/src/w1/exc105.c 
-	${MKDIR} -p ${OBJECTDIR}/_ext/2017240758
+${OBJECTDIR}/src/w1/exc104.o: src/w1/exc104.c 
+	${MKDIR} -p ${OBJECTDIR}/src/w1
 	${RM} "$@.d"
-	$(COMPILE.c) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/2017240758/exc105.o ../../../../../fs2/home/rsirvio/NetBeansProjects/C-NumeerisetMenetelmat/src/w1/exc105.c
+	$(COMPILE.c) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/w1/exc104.o src/w1/exc104.c
+
+${OBJECTDIR}/src/w1/exc105.o: src/w1/exc105.c 
+	${MKDIR} -p ${OBJECTDIR}/src/w1
+	${RM} "$@.d"
+	$(COMPILE.c) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/w1/exc105.o src/w1/exc105.c
+
+${OBJECTDIR}/src/w1/hlp011.o: src/w1/hlp011.c 
+	${MKDIR} -p ${OBJECTDIR}/src/w1
+	${RM} "$@.d"
+	$(COMPILE.c) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/w1/hlp011.o src/w1/hlp011.c
 
 # Subprojects
 .build-subprojects:
