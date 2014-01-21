@@ -39,7 +39,9 @@ OBJECTFILES= \
 	${OBJECTDIR}/src/w1/exc102.o \
 	${OBJECTDIR}/src/w1/exc104.o \
 	${OBJECTDIR}/src/w1/exc104.o \
-	${OBJECTDIR}/src/w1/exc105.o
+	${OBJECTDIR}/src/w1/exc105.o \
+	${OBJECTDIR}/src/w2/exc201.o \
+	${OBJECTDIR}/src/w2/exc202.o
 
 
 # C Compiler Flags
@@ -68,28 +70,38 @@ ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/c-numeerisetmenetelmat: ${OBJECTFILES
 
 ${OBJECTDIR}/src/w1/exc101.o: src/w1/exc101.c 
 	${MKDIR} -p ${OBJECTDIR}/src/w1
-	${RM} $@.d
-	$(COMPILE.c) -g -MMD -MP -MF $@.d -o ${OBJECTDIR}/src/w1/exc101.o src/w1/exc101.c
+	${RM} "$@.d"
+	$(COMPILE.c) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/w1/exc101.o src/w1/exc101.c
 
 ${OBJECTDIR}/src/w1/exc102.o: src/w1/exc102.c 
 	${MKDIR} -p ${OBJECTDIR}/src/w1
-	${RM} $@.d
-	$(COMPILE.c) -g -MMD -MP -MF $@.d -o ${OBJECTDIR}/src/w1/exc102.o src/w1/exc102.c
+	${RM} "$@.d"
+	$(COMPILE.c) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/w1/exc102.o src/w1/exc102.c
 
 ${OBJECTDIR}/src/w1/exc104.o: src/w1/exc104.c 
 	${MKDIR} -p ${OBJECTDIR}/src/w1
-	${RM} $@.d
-	$(COMPILE.c) -g -MMD -MP -MF $@.d -o ${OBJECTDIR}/src/w1/exc104.o src/w1/exc104.c
+	${RM} "$@.d"
+	$(COMPILE.c) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/w1/exc104.o src/w1/exc104.c
 
 ${OBJECTDIR}/src/w1/exc104.o: src/w1/exc104.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src/w1
-	${RM} $@.d
-	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF $@.d -o ${OBJECTDIR}/src/w1/exc104.o src/w1/exc104.cpp
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/w1/exc104.o src/w1/exc104.cpp
 
 ${OBJECTDIR}/src/w1/exc105.o: src/w1/exc105.c 
 	${MKDIR} -p ${OBJECTDIR}/src/w1
-	${RM} $@.d
-	$(COMPILE.c) -g -MMD -MP -MF $@.d -o ${OBJECTDIR}/src/w1/exc105.o src/w1/exc105.c
+	${RM} "$@.d"
+	$(COMPILE.c) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/w1/exc105.o src/w1/exc105.c
+
+${OBJECTDIR}/src/w2/exc201.o: src/w2/exc201.cpp 
+	${MKDIR} -p ${OBJECTDIR}/src/w2
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/w2/exc201.o src/w2/exc201.cpp
+
+${OBJECTDIR}/src/w2/exc202.o: src/w2/exc202.cpp 
+	${MKDIR} -p ${OBJECTDIR}/src/w2
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/w2/exc202.o src/w2/exc202.cpp
 
 # Subprojects
 .build-subprojects:
