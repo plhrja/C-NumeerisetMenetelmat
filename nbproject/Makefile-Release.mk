@@ -35,10 +35,11 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 
 # Object Files
 OBJECTFILES= \
+	${OBJECTDIR}/src/w1/exc101.o \
 	${OBJECTDIR}/src/w1/exc102.o \
 	${OBJECTDIR}/src/w1/exc104.o \
-	${OBJECTDIR}/src/w1/exc105.o \
-	${OBJECTDIR}/src/w1/hlp011.o
+	${OBJECTDIR}/src/w1/exc104.o \
+	${OBJECTDIR}/src/w1/exc105.o
 
 
 # C Compiler Flags
@@ -63,27 +64,32 @@ LDLIBSOPTIONS=
 
 ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/c-numeerisetmenetelmat: ${OBJECTFILES}
 	${MKDIR} -p ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}
-	${LINK.c} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/c-numeerisetmenetelmat ${OBJECTFILES} ${LDLIBSOPTIONS}
+	${LINK.cc} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/c-numeerisetmenetelmat ${OBJECTFILES} ${LDLIBSOPTIONS}
+
+${OBJECTDIR}/src/w1/exc101.o: src/w1/exc101.c 
+	${MKDIR} -p ${OBJECTDIR}/src/w1
+	${RM} $@.d
+	$(COMPILE.c) -O2 -MMD -MP -MF $@.d -o ${OBJECTDIR}/src/w1/exc101.o src/w1/exc101.c
 
 ${OBJECTDIR}/src/w1/exc102.o: src/w1/exc102.c 
 	${MKDIR} -p ${OBJECTDIR}/src/w1
-	${RM} "$@.d"
-	$(COMPILE.c) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/w1/exc102.o src/w1/exc102.c
+	${RM} $@.d
+	$(COMPILE.c) -O2 -MMD -MP -MF $@.d -o ${OBJECTDIR}/src/w1/exc102.o src/w1/exc102.c
 
 ${OBJECTDIR}/src/w1/exc104.o: src/w1/exc104.c 
 	${MKDIR} -p ${OBJECTDIR}/src/w1
-	${RM} "$@.d"
-	$(COMPILE.c) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/w1/exc104.o src/w1/exc104.c
+	${RM} $@.d
+	$(COMPILE.c) -O2 -MMD -MP -MF $@.d -o ${OBJECTDIR}/src/w1/exc104.o src/w1/exc104.c
+
+${OBJECTDIR}/src/w1/exc104.o: src/w1/exc104.cpp 
+	${MKDIR} -p ${OBJECTDIR}/src/w1
+	${RM} $@.d
+	$(COMPILE.cc) -O2 -MMD -MP -MF $@.d -o ${OBJECTDIR}/src/w1/exc104.o src/w1/exc104.cpp
 
 ${OBJECTDIR}/src/w1/exc105.o: src/w1/exc105.c 
 	${MKDIR} -p ${OBJECTDIR}/src/w1
-	${RM} "$@.d"
-	$(COMPILE.c) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/w1/exc105.o src/w1/exc105.c
-
-${OBJECTDIR}/src/w1/hlp011.o: src/w1/hlp011.c 
-	${MKDIR} -p ${OBJECTDIR}/src/w1
-	${RM} "$@.d"
-	$(COMPILE.c) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/w1/hlp011.o src/w1/hlp011.c
+	${RM} $@.d
+	$(COMPILE.c) -O2 -MMD -MP -MF $@.d -o ${OBJECTDIR}/src/w1/exc105.o src/w1/exc105.c
 
 # Subprojects
 .build-subprojects:

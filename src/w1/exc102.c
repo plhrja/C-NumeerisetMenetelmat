@@ -9,16 +9,6 @@ double WindChill(double T, double V) {
     return 0.045 * (5.27 * sqrt(V) + 10.45 - 0.28 * V)* (T - 33.0) + 33.0;
 }
 
-int Prompt_TV() {
-    double T, V;
-    printf("Enter temperature in Celsius:");
-    scanf("%lf", &T);
-    printf("Enter wind speed in km/h:");
-    scanf("%lf", &V);
-    printf("For T = %lf, V = %lf, wind chill is: %lf\n\n", T, V, WindChill(T, V));
-    return 0;
-}
-
 int main() {
     int i, j, k;
     double T, V, WC;

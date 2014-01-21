@@ -14,10 +14,11 @@
                    projectFiles="true">
       <logicalFolder name="w1" displayName="w1" projectFiles="true">
         <itemPath>src/w1/a.out</itemPath>
+        <itemPath>src/w1/exc101.c</itemPath>
         <itemPath>src/w1/exc102.c</itemPath>
         <itemPath>src/w1/exc104.c</itemPath>
+        <itemPath>src/w1/exc104.cpp</itemPath>
         <itemPath>src/w1/exc105.c</itemPath>
-        <itemPath>src/w1/hlp011.c</itemPath>
       </logicalFolder>
     </logicalFolder>
     <logicalFolder name="TestFiles"
@@ -45,16 +46,21 @@
         <rebuildPropChanged>false</rebuildPropChanged>
       </toolsSet>
       <compileType>
+        <ccTool>
+          <standard>8</standard>
+        </ccTool>
       </compileType>
       <item path="src/w1/a.out" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/w1/exc101.c" ex="false" tool="0" flavor2="0">
       </item>
       <item path="src/w1/exc102.c" ex="false" tool="0" flavor2="0">
       </item>
       <item path="src/w1/exc104.c" ex="false" tool="0" flavor2="0">
       </item>
-      <item path="src/w1/exc105.c" ex="false" tool="0" flavor2="0">
+      <item path="src/w1/exc104.cpp" ex="false" tool="1" flavor2="0">
       </item>
-      <item path="src/w1/hlp011.c" ex="false" tool="0" flavor2="0">
+      <item path="src/w1/exc105.c" ex="false" tool="0" flavor2="0">
       </item>
     </conf>
     <conf name="Release" type="1">
@@ -79,13 +85,15 @@
       </compileType>
       <item path="src/w1/a.out" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="src/w1/exc101.c" ex="false" tool="0" flavor2="0">
+      </item>
       <item path="src/w1/exc102.c" ex="false" tool="0" flavor2="0">
       </item>
       <item path="src/w1/exc104.c" ex="false" tool="0" flavor2="0">
       </item>
-      <item path="src/w1/exc105.c" ex="false" tool="0" flavor2="0">
+      <item path="src/w1/exc104.cpp" ex="false" tool="1" flavor2="0">
       </item>
-      <item path="src/w1/hlp011.c" ex="false" tool="0" flavor2="0">
+      <item path="src/w1/exc105.c" ex="false" tool="0" flavor2="0">
       </item>
     </conf>
   </confs>
