@@ -3,13 +3,14 @@
 #include <cmath>
 #include "plot.h"
 #include "nr.h"
+#include "mutils.cpp"
 #include "matutl02.h"
 
 using namespace std;
 
 int main(){
-    Mat_DP A = getmat("A202.mat");
-    Mat_DP b = getmat("b202.mat");
+    Mat_DP A = getmat("data/A202.mat");
+    Mat_DP b = getmat("data/b202.mat");
     Mat_DP invAtA(2,2);
     Mat_DP x;
     
@@ -30,18 +31,16 @@ int main(){
     
     //-------------------plotting-----------------------------
     
-    char* filename1 = "data.tmp";
-    char* filename2 = "fitted.tmp";
-    FILE* file1 = fopen(filename1, "w");
-    FILE* file2 = fopen(filename2, "w");
-
-    int i;
-    for (i = 0; i < A.nrows(); i++) {
-        fprintf(file1, "%5.5f %5.5f\n", A[i][0], b[i][0]);
-        fprintf(file2, "%5.5f %5.5f\n", A[i][0], x[0][0] * A[i][0] + x[1][0]);
+    const char* filename1 = "data/data.tmp";
+    const char* filename2 = "data/fitted.tmp";
+    
+    generatePlottingData(A,b,filename1);
+    
+    Mat_DP ydata(A.nrows(), 1);
+    for (int i = 0; i < A.nrows(); i++) {
+        ydata[i][0] = x[0][0] * A[i][0] + x[1][0];
     }
-    fclose(file1);
-    fclose(file2);
+    generatePlottingData(A, ydata, filename2);
     
     plot(filename1, "k.", filename2, "r-", NULL);
 }
