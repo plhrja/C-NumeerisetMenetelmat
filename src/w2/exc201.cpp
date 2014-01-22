@@ -15,6 +15,7 @@ void MC(double (*f1)(double), double (*f2)(double), int n, double xmin, double x
     vector<double> missx;
     vector<double> missy;
     
+    init_srand();
     for (int i = 0; i < n; i++) {
         double x = rdm(xmin, xmax);
         double y = rdm(ymin,ymax);
@@ -61,7 +62,7 @@ void MC(double (*f1)(double), double (*f2)(double), int n, double xmin, double x
 
 int main(){
     
-    MC(&sin, &cos, 5000, 0, 2 * M_PI, -1, 1);
+    MC(&sin, &cos, 3000, 0, 2 * M_PI, -1, 1);
     
 }
 

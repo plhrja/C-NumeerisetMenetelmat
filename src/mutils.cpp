@@ -22,7 +22,7 @@ void isolateCol(Mat_DP mtr, int col, Mat_DP* colMtr){
 void generatePlottingData(Mat_DP xdata, Mat_DP ydata, const char* fname){
     std::ofstream f(fname);
     
-    for (int i = 0; i < xdata.nrows; i++) {
+    for (int i = 0; i < xdata.nrows(); i++) {
         f.precision(6);
         f << xdata[i][0] << " " << ydata[i][0] << std::endl;
     }
