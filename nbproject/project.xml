@@ -6,16 +6,13 @@
             <name>C-NumeerisetMenetelmat</name>
             <c-extensions>c</c-extensions>
             <cpp-extensions>cpp</cpp-extensions>
-            <header-extensions/>
+            <header-extensions>h</header-extensions>
             <sourceEncoding>UTF-8</sourceEncoding>
-            <formatting>
-                <project-formatting-style>false</project-formatting-style>
-            </formatting>
             <make-dep-projects/>
             <sourceRootList>
                 <sourceRootElem>../../../../../fs2/home/rsirvio/NetBeansProjects/C-NumeerisetMenetelmat/src/w1</sourceRootElem>
                 <sourceRootElem>src/w1</sourceRootElem>
-                <sourceRootElem>w2</sourceRootElem>
+                <sourceRootElem>src/w2</sourceRootElem>
             </sourceRootList>
             <confList>
                 <confElem>
@@ -27,6 +24,9 @@
                     <type>1</type>
                 </confElem>
             </confList>
+            <formatting>
+                <project-formatting-style>false</project-formatting-style>
+            </formatting>
         </data>
     </configuration>
 </project>

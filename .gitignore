@@ -1,4 +1,4 @@
 src/*/a
-*.tmp
-*.cmd
-*.png
+src/*/data/*.tmp
+src/*/data/*.cmd
+src/*/data/*.png

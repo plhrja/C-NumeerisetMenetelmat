@@ -35,14 +35,15 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 
 # Object Files
 OBJECTFILES= \
-	${OBJECTDIR}/_ext/1799457012/exc201.o \
 	${OBJECTDIR}/src/mutils.o \
 	${OBJECTDIR}/src/w1/exc101.o \
 	${OBJECTDIR}/src/w1/exc102.o \
 	${OBJECTDIR}/src/w1/exc104.o \
 	${OBJECTDIR}/src/w1/exc104.o \
 	${OBJECTDIR}/src/w1/exc105.o \
-	${OBJECTDIR}/w2/exc202.o
+	${OBJECTDIR}/src/w2/exc201.o \
+	${OBJECTDIR}/src/w2/exc202.o \
+	${OBJECTDIR}/src/w2/exc203.o
 
 
 # C Compiler Flags
@@ -69,45 +70,50 @@ ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/c-numeerisetmenetelmat: ${OBJECTFILES
 	${MKDIR} -p ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}
 	${LINK.cc} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/c-numeerisetmenetelmat ${OBJECTFILES} ${LDLIBSOPTIONS}
 
-${OBJECTDIR}/_ext/1799457012/exc201.o: ../../excercises/w2/exc201.cpp 
-	${MKDIR} -p ${OBJECTDIR}/_ext/1799457012
-	${RM} $@.d
-	$(COMPILE.cc) -O2 -MMD -MP -MF $@.d -o ${OBJECTDIR}/_ext/1799457012/exc201.o ../../excercises/w2/exc201.cpp
-
 ${OBJECTDIR}/src/mutils.o: src/mutils.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src
-	${RM} $@.d
-	$(COMPILE.cc) -O2 -MMD -MP -MF $@.d -o ${OBJECTDIR}/src/mutils.o src/mutils.cpp
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/mutils.o src/mutils.cpp
 
 ${OBJECTDIR}/src/w1/exc101.o: src/w1/exc101.c 
 	${MKDIR} -p ${OBJECTDIR}/src/w1
-	${RM} $@.d
-	$(COMPILE.c) -O2 -MMD -MP -MF $@.d -o ${OBJECTDIR}/src/w1/exc101.o src/w1/exc101.c
+	${RM} "$@.d"
+	$(COMPILE.c) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/w1/exc101.o src/w1/exc101.c
 
 ${OBJECTDIR}/src/w1/exc102.o: src/w1/exc102.c 
 	${MKDIR} -p ${OBJECTDIR}/src/w1
-	${RM} $@.d
-	$(COMPILE.c) -O2 -MMD -MP -MF $@.d -o ${OBJECTDIR}/src/w1/exc102.o src/w1/exc102.c
+	${RM} "$@.d"
+	$(COMPILE.c) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/w1/exc102.o src/w1/exc102.c
 
 ${OBJECTDIR}/src/w1/exc104.o: src/w1/exc104.c 
 	${MKDIR} -p ${OBJECTDIR}/src/w1
-	${RM} $@.d
-	$(COMPILE.c) -O2 -MMD -MP -MF $@.d -o ${OBJECTDIR}/src/w1/exc104.o src/w1/exc104.c
+	${RM} "$@.d"
+	$(COMPILE.c) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/w1/exc104.o src/w1/exc104.c
 
 ${OBJECTDIR}/src/w1/exc104.o: src/w1/exc104.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src/w1
-	${RM} $@.d
-	$(COMPILE.cc) -O2 -MMD -MP -MF $@.d -o ${OBJECTDIR}/src/w1/exc104.o src/w1/exc104.cpp
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/w1/exc104.o src/w1/exc104.cpp
 
 ${OBJECTDIR}/src/w1/exc105.o: src/w1/exc105.c 
 	${MKDIR} -p ${OBJECTDIR}/src/w1
-	${RM} $@.d
-	$(COMPILE.c) -O2 -MMD -MP -MF $@.d -o ${OBJECTDIR}/src/w1/exc105.o src/w1/exc105.c
+	${RM} "$@.d"
+	$(COMPILE.c) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/w1/exc105.o src/w1/exc105.c
 
-${OBJECTDIR}/w2/exc202.o: w2/exc202.cpp 
-	${MKDIR} -p ${OBJECTDIR}/w2
-	${RM} $@.d
-	$(COMPILE.cc) -O2 -MMD -MP -MF $@.d -o ${OBJECTDIR}/w2/exc202.o w2/exc202.cpp
+${OBJECTDIR}/src/w2/exc201.o: src/w2/exc201.cpp 
+	${MKDIR} -p ${OBJECTDIR}/src/w2
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/w2/exc201.o src/w2/exc201.cpp
+
+${OBJECTDIR}/src/w2/exc202.o: src/w2/exc202.cpp 
+	${MKDIR} -p ${OBJECTDIR}/src/w2
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/w2/exc202.o src/w2/exc202.cpp
+
+${OBJECTDIR}/src/w2/exc203.o: src/w2/exc203.cpp 
+	${MKDIR} -p ${OBJECTDIR}/src/w2
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/w2/exc203.o src/w2/exc203.cpp
 
 # Subprojects
 .build-subprojects:
