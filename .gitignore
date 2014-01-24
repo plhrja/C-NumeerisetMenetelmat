@@ -2,3 +2,4 @@ src/*/a
 src/*/data/*.tmp
 src/*/data/*.cmd
 src/*/data/*.png
+src/*/data/*.mat

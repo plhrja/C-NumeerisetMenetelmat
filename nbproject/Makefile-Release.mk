@@ -43,7 +43,8 @@ OBJECTFILES= \
 	${OBJECTDIR}/src/w1/exc105.o \
 	${OBJECTDIR}/src/w2/exc201.o \
 	${OBJECTDIR}/src/w2/exc202.o \
-	${OBJECTDIR}/src/w2/exc203.o
+	${OBJECTDIR}/src/w2/exc203.o \
+	${OBJECTDIR}/src/w2/exc204.o
 
 
 # C Compiler Flags
@@ -114,6 +115,11 @@ ${OBJECTDIR}/src/w2/exc203.o: src/w2/exc203.cpp
 	${MKDIR} -p ${OBJECTDIR}/src/w2
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/w2/exc203.o src/w2/exc203.cpp
+
+${OBJECTDIR}/src/w2/exc204.o: src/w2/exc204.cpp 
+	${MKDIR} -p ${OBJECTDIR}/src/w2
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/w2/exc204.o src/w2/exc204.cpp
 
 # Subprojects
 .build-subprojects:
