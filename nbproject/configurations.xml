@@ -28,6 +28,7 @@
         <itemPath>src/w2/exc202.cpp</itemPath>
         <itemPath>src/w2/exc203.cpp</itemPath>
         <itemPath>src/w2/exc204.cpp</itemPath>
+        <itemPath>src/w2/exc205.cpp</itemPath>
       </logicalFolder>
       <itemPath>src/mutils.cpp</itemPath>
       <itemPath>src/mutils.h</itemPath>
@@ -92,6 +93,8 @@
       </item>
       <item path="src/w2/exc204.cpp" ex="false" tool="1" flavor2="0">
       </item>
+      <item path="src/w2/exc205.cpp" ex="false" tool="1" flavor2="0">
+      </item>
     </conf>
     <conf name="Release" type="1">
       <toolsSet>
@@ -142,6 +145,8 @@
       <item path="src/w2/exc203.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="src/w2/exc204.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/w2/exc205.cpp" ex="false" tool="1" flavor2="0">
       </item>
     </conf>
   </confs>

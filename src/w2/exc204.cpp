@@ -61,75 +61,21 @@ int isTrid(Mat_DP* A, double eps) {
     }
 }
 
-void testTriuInv() {
+void testInv(void (*con)(Mat_DP*, double, double), int (*pred)(Mat_DP*, double), double eps) {
     double min = -100;
     double max = 100;
     int fails = 0;
     int power = 5;
     int tests = 300;
-    double eps = 1e-8;
-    for (int n = 2; n <= pow(2, power); n *= 2) {
-        for (int i = 0; i < tests; i++) {
-            Mat_DP A(n, n);
-            Mat_DP invA(n, n);
-
-            triu(&A, min, max);
-            invmat(A, invA);
-
-            if (!isTriu(&invA, eps)) {
-                fails++;
-            }
-        }
-    }
-    cout << "Testcount = " << power * tests << endl;
-    cout << "Fails = " << fails << endl;
-
-    cout << "ratio = " << (double) fails / (power * tests) * 100 << "%" << endl;
-}
-
-void testTriuProd() {
-    double min = -100;
-    double max = 100;
-    int fails = 0;
-    int power = 5;
-    int tests = 300;
-    double eps = 1e-8;
-    for (int n = 2; n <= pow(2, power); n *= 2) {
-        for (int i = 0; i < tests; i++) {
-            Mat_DP A(n, n);
-            Mat_DP B(n, n);
-            Mat_DP AB(n, n);
-
-            triu(&A, min, max);
-            triu(&B, min, max);
-            AB = A * B;
-
-            if (!isTriu(&AB, eps)) {
-                fails++;
-            }
-        }
-    }
-    cout << "Testcount = " << power * tests << endl;
-    cout << "Fails = " << fails << endl;
-    cout << "ratio = " << (double) fails / (power * tests) * 100 << "%" << endl;
-}
-
-void testTridInv() {
-    double min = -100;
-    double max = 100;
-    int fails = 0;
-    int power = 5;
-    int tests = 300;
-    double eps = 1e-8;
     for (int n = 4; n <= pow(2, power); n *= 2) {
         for (int i = 0; i < tests; i++) {
             Mat_DP A(n, n);
             Mat_DP invA(n, n);
 
-            trid(&A, min, max);
+            (*con)(&A, min, max);
             invmat(A, invA);
 
-            if (!isTrid(&invA, eps)) {
+            if (!(*pred)(&invA, eps)) {
                 fails++;
             }
         }
@@ -140,51 +86,49 @@ void testTridInv() {
     cout << "ratio = " << (double) fails / (power * tests) * 100 << "%" << endl;
 }
 
-void testTridProd() {
+void testProd(void (*con)(Mat_DP*, double, double), int (*pred)(Mat_DP*, double), double eps) {
     double min = -100;
     double max = 100;
     int fails = 0;
     int power = 5;
     int tests = 300;
-    double eps = 1e-8;
     for (int n = 4; n <= pow(2, power); n *= 2) {
         for (int i = 0; i < tests; i++) {
             Mat_DP A(n, n);
             Mat_DP B(n, n);
             Mat_DP AB(n, n);
 
-            trid(&A, min, max);
-            trid(&B, min, max);
+            (*con)(&A, min, max);
+            (*con)(&B, min, max);
             AB = A * B;
 
-            if (!isTrid(&AB, eps)) {
+            if (!(*pred)(&AB, eps)) {
                 fails++;
             }
         }
     }
-    
     power--;
     cout << "Testcount = " << power * tests << endl;
     cout << "Fails = " << fails << endl;
     cout << "ratio = " << (double) fails / (power * tests) * 100 << "%" << endl;
 }
-
+        
 int main() {
     init_srand();
     cout.precision(3);
     
     cout << "Testing inverse of upper triangle matrices:" << endl;
-    testTriuInv();
+    testInv(triu, isTriu, 1e-8);
     getchar();
 
     cout << "Testing product of two upper triangle matrices:" << endl;
-    testTriuInv();
+    testProd(triu, isTriu, 1e-8);
     getchar();
     
     cout << "Testing inverse of tridiagonal matrices:" << endl;
-    testTridInv();
+    testInv(trid, isTrid, 1e-2);
     getchar();
 
     cout << "Testing product of two tridiagonal matrices:" << endl;
-    testTridProd();
+    testProd(trid, isTrid, 1e-2);
 }
