@@ -4,7 +4,7 @@
 #include <vector>
 #include "plot.h"
 #include "nr.h"
-#include "mutils.cpp"
+#include "mutils.h"
 #include "matutl02.h"
 
 using namespace std;

@@ -5,7 +5,6 @@
 #include <fstream>
 #include <iostream>
 #include "nr.h"
-#include "matutl02.h"
 
 void isolateRow(Mat_DP mtr, int row, Mat_DP* rowMtr){
     for (int i = 0; i < mtr.ncols(); i++) {

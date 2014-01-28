@@ -4,14 +4,14 @@
 #include <vector>
 #include "plot.h"
 #include "nr.h"
-#include "mutils.cpp"
+#include "mutils.h"
 #include "matutl02.h"
 
 using namespace std;
 
 int main(){
     
-    auto g = [] (double x) {return pow(sin(x), 2);};
+    auto g = [ ] (double x) {return pow(sin(x), 2);};
     auto f = [g] (double x) {return NR::qtrap(g, 0, x);};
     auto h = [f] (double x) {return f(x) - 5;};
     cout.precision(10);
@@ -33,6 +33,7 @@ int main(){
             a = c;
         }
         
+        cout << "Iteration: " << i << endl;
         cout << "x = " << c << endl;
         cout << "f(x) = " << f(c) << endl << endl;
     }
