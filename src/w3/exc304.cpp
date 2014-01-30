@@ -9,11 +9,12 @@
 
 using namespace std;
 
-void generateSequence(vector<double>* container, double lastElem, int elemCount) {
+void generateSequence(vector<double>* container, double lastElem, int elemCount, double noiseRange) {
     (*container)[elemCount - 1] = lastElem;
     for (int i = elemCount - 1; i > 1; i--) {
-        double constraint = (double) (i + 1) / (i - 1);
-        (*container)[i-1] = constraint * (*container)[i];
+        double constraint = (double) i  / (i - 1);
+        double noise = (noiseRange <= 0) ? 1 : 1 + noiseRange;
+        (*container)[i-1] = constraint * (*container)[i] * noise;
     }
     (*container)[0] = (*container)[1] * 1;
 }
@@ -37,17 +38,16 @@ double getMin(vector<double> vec){
 }
 
 int main() {
-    init_srand();
-    for (int i = 2; i <= pow(2, 6); i *= 2) {
+    for (int i = 2; i <= pow(2, 7); i *= 2) {
         int sequenceSize = i;   
-        int ppoints = 50;
+        int ppoints = 500;
 
         vector<double> seq(sequenceSize);
         vector<double> x(ppoints);
         vector<double> f1(ppoints);
         vector<double> f2(ppoints);
 
-        generateSequence(&seq, 0.01, sequenceSize);
+        generateSequence(&seq, 0.01, sequenceSize, 0);
 
         for (int i = 0; i < ppoints; i++) {
             double xx = i * ((double) M_PI / ppoints);
@@ -67,6 +67,7 @@ int main() {
         cout << "min f1(x) = " << getMin(f1) << endl;
         cout << "min f2(x) = " << getMin(f2) << endl << endl;
         plot(f1points, "r-2", f2points, "b-2", NULL);
+        
         getchar();
     }
 }
