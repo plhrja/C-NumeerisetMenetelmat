@@ -9,9 +9,11 @@
 
 using namespace std;
 
+#define MUL_DEF 1.1
+
 void DD(Mat_DP* A, double mul, double low, double high) {
     ranmat2((*A), low, high);
-    mul = (mul < 1) ? 1.1 : mul;
+    mul = (mul < 1) ? MUL_DEF : mul;
 
     for (int i = 0; i < A->nrows(); i++) {
         double sum = 0;
@@ -82,8 +84,6 @@ void testProd(int n, int testCount, double mul, double low, double high) {
 
 int main() {
     int testCount = 150;
-    double low = -100;
-    double high = 100;
     double mul = 10;
     
     cout.precision(3);
@@ -91,13 +91,13 @@ int main() {
     
     cout << "Testing inverse of DD-matrices:" << endl << endl;
     for (int n = 2; n <= pow(2, 6); n *= 2) {
-        testInv(n, testCount, mul, low, high);
+        testInv(n, testCount, mul, -1e-5, 1e-5);
         getchar();
     }
     
     cout << "Testing product of two DD-matrices:" << endl << endl;
     for (int n = 2; n <= pow(2, 6); n *= 2) {
-        testProd(n, testCount, mul, low, high);
+        testProd(n, testCount, mul, -100, 100);
         getchar();
     }
 }

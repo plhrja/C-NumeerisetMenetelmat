@@ -47,7 +47,7 @@ int main() {
         vector<double> f1(ppoints);
         vector<double> f2(ppoints);
 
-        generateSequence(&seq, 0.01, sequenceSize, 0);
+        generateSequence(&seq, 0.01, sequenceSize, 0.1);
 
         for (int i = 0; i < ppoints; i++) {
             double xx = i * ((double) M_PI / ppoints);
@@ -66,9 +66,7 @@ int main() {
         cout << "sequence size = " << i << endl;
         cout << "min f1(x) = " << getMin(f1) << endl;
         cout << "min f2(x) = " << getMin(f2) << endl << endl;
-        plot(f1points, "r-2", f2points, "b-2", NULL);
-        
-        getchar();
+        plot(f1points, "r-2", f2points, "b-2", NULL);       
     }
 }
 
