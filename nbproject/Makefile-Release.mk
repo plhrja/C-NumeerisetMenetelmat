@@ -50,7 +50,8 @@ OBJECTFILES= \
 	${OBJECTDIR}/src/w3/exc302.o \
 	${OBJECTDIR}/src/w3/exc303.o \
 	${OBJECTDIR}/src/w3/exc304.o \
-	${OBJECTDIR}/src/w3/exc305.o
+	${OBJECTDIR}/src/w3/exc305.o \
+	${OBJECTDIR}/src/w4/exc401.o
 
 
 # C Compiler Flags
@@ -79,83 +80,88 @@ ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/c-numeerisetmenetelmat: ${OBJECTFILES
 
 ${OBJECTDIR}/src/mutils.o: src/mutils.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src
-	${RM} "$@.d"
-	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/mutils.o src/mutils.cpp
+	${RM} $@.d
+	$(COMPILE.cc) -O2 -MMD -MP -MF $@.d -o ${OBJECTDIR}/src/mutils.o src/mutils.cpp
 
 ${OBJECTDIR}/src/myeigen.o: src/myeigen.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src
-	${RM} "$@.d"
-	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/myeigen.o src/myeigen.cpp
+	${RM} $@.d
+	$(COMPILE.cc) -O2 -MMD -MP -MF $@.d -o ${OBJECTDIR}/src/myeigen.o src/myeigen.cpp
 
 ${OBJECTDIR}/src/w1/exc101.o: src/w1/exc101.c 
 	${MKDIR} -p ${OBJECTDIR}/src/w1
-	${RM} "$@.d"
-	$(COMPILE.c) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/w1/exc101.o src/w1/exc101.c
+	${RM} $@.d
+	$(COMPILE.c) -O2 -MMD -MP -MF $@.d -o ${OBJECTDIR}/src/w1/exc101.o src/w1/exc101.c
 
 ${OBJECTDIR}/src/w1/exc102.o: src/w1/exc102.c 
 	${MKDIR} -p ${OBJECTDIR}/src/w1
-	${RM} "$@.d"
-	$(COMPILE.c) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/w1/exc102.o src/w1/exc102.c
+	${RM} $@.d
+	$(COMPILE.c) -O2 -MMD -MP -MF $@.d -o ${OBJECTDIR}/src/w1/exc102.o src/w1/exc102.c
 
 ${OBJECTDIR}/src/w1/exc104.o: src/w1/exc104.c 
 	${MKDIR} -p ${OBJECTDIR}/src/w1
-	${RM} "$@.d"
-	$(COMPILE.c) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/w1/exc104.o src/w1/exc104.c
+	${RM} $@.d
+	$(COMPILE.c) -O2 -MMD -MP -MF $@.d -o ${OBJECTDIR}/src/w1/exc104.o src/w1/exc104.c
 
 ${OBJECTDIR}/src/w1/exc104.o: src/w1/exc104.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src/w1
-	${RM} "$@.d"
-	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/w1/exc104.o src/w1/exc104.cpp
+	${RM} $@.d
+	$(COMPILE.cc) -O2 -MMD -MP -MF $@.d -o ${OBJECTDIR}/src/w1/exc104.o src/w1/exc104.cpp
 
 ${OBJECTDIR}/src/w1/exc105.o: src/w1/exc105.c 
 	${MKDIR} -p ${OBJECTDIR}/src/w1
-	${RM} "$@.d"
-	$(COMPILE.c) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/w1/exc105.o src/w1/exc105.c
+	${RM} $@.d
+	$(COMPILE.c) -O2 -MMD -MP -MF $@.d -o ${OBJECTDIR}/src/w1/exc105.o src/w1/exc105.c
 
 ${OBJECTDIR}/src/w2/exc201.o: src/w2/exc201.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src/w2
-	${RM} "$@.d"
-	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/w2/exc201.o src/w2/exc201.cpp
+	${RM} $@.d
+	$(COMPILE.cc) -O2 -MMD -MP -MF $@.d -o ${OBJECTDIR}/src/w2/exc201.o src/w2/exc201.cpp
 
 ${OBJECTDIR}/src/w2/exc202.o: src/w2/exc202.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src/w2
-	${RM} "$@.d"
-	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/w2/exc202.o src/w2/exc202.cpp
+	${RM} $@.d
+	$(COMPILE.cc) -O2 -MMD -MP -MF $@.d -o ${OBJECTDIR}/src/w2/exc202.o src/w2/exc202.cpp
 
 ${OBJECTDIR}/src/w2/exc203.o: src/w2/exc203.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src/w2
-	${RM} "$@.d"
-	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/w2/exc203.o src/w2/exc203.cpp
+	${RM} $@.d
+	$(COMPILE.cc) -O2 -MMD -MP -MF $@.d -o ${OBJECTDIR}/src/w2/exc203.o src/w2/exc203.cpp
 
 ${OBJECTDIR}/src/w2/exc204.o: src/w2/exc204.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src/w2
-	${RM} "$@.d"
-	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/w2/exc204.o src/w2/exc204.cpp
+	${RM} $@.d
+	$(COMPILE.cc) -O2 -MMD -MP -MF $@.d -o ${OBJECTDIR}/src/w2/exc204.o src/w2/exc204.cpp
 
 ${OBJECTDIR}/src/w2/exc205.o: src/w2/exc205.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src/w2
-	${RM} "$@.d"
-	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/w2/exc205.o src/w2/exc205.cpp
+	${RM} $@.d
+	$(COMPILE.cc) -O2 -MMD -MP -MF $@.d -o ${OBJECTDIR}/src/w2/exc205.o src/w2/exc205.cpp
 
 ${OBJECTDIR}/src/w3/exc302.o: src/w3/exc302.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src/w3
-	${RM} "$@.d"
-	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/w3/exc302.o src/w3/exc302.cpp
+	${RM} $@.d
+	$(COMPILE.cc) -O2 -MMD -MP -MF $@.d -o ${OBJECTDIR}/src/w3/exc302.o src/w3/exc302.cpp
 
 ${OBJECTDIR}/src/w3/exc303.o: src/w3/exc303.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src/w3
-	${RM} "$@.d"
-	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/w3/exc303.o src/w3/exc303.cpp
+	${RM} $@.d
+	$(COMPILE.cc) -O2 -MMD -MP -MF $@.d -o ${OBJECTDIR}/src/w3/exc303.o src/w3/exc303.cpp
 
 ${OBJECTDIR}/src/w3/exc304.o: src/w3/exc304.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src/w3
-	${RM} "$@.d"
-	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/w3/exc304.o src/w3/exc304.cpp
+	${RM} $@.d
+	$(COMPILE.cc) -O2 -MMD -MP -MF $@.d -o ${OBJECTDIR}/src/w3/exc304.o src/w3/exc304.cpp
 
 ${OBJECTDIR}/src/w3/exc305.o: src/w3/exc305.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src/w3
-	${RM} "$@.d"
-	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/w3/exc305.o src/w3/exc305.cpp
+	${RM} $@.d
+	$(COMPILE.cc) -O2 -MMD -MP -MF $@.d -o ${OBJECTDIR}/src/w3/exc305.o src/w3/exc305.cpp
+
+${OBJECTDIR}/src/w4/exc401.o: src/w4/exc401.cpp 
+	${MKDIR} -p ${OBJECTDIR}/src/w4
+	${RM} $@.d
+	$(COMPILE.cc) -O2 -MMD -MP -MF $@.d -o ${OBJECTDIR}/src/w4/exc401.o src/w4/exc401.cpp
 
 # Subprojects
 .build-subprojects:

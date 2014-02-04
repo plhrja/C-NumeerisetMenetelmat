@@ -13,4 +13,8 @@ void isolateCol(Mat_DP mtr, int col, Mat_DP colMtr);
 
 void generatePlottingData(Mat_DP xdata, Mat_DP ydata, const char* fname);
 
+void generatePlottingData(Vec_DP xdata, Vec_DP ydata, const char* fname);
+
 void generatePlottingData(std::vector<double> xdata, std::vector<double> ydata, const char* fname);
+
+void LUsolve(Mat_DP a, Vec_DP b, Vec_DP &x);
