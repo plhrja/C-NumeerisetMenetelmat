@@ -9,7 +9,7 @@
 
 using namespace std;
 
-void generateData(Vec_DP& xdata, Vec_DP& ydata, Vec_DP& coeffs, double low, double high){
+void generateNoisyData(Vec_DP& xdata, Vec_DP& ydata, Vec_DP& coeffs, double low, double high){
     for (int i = 0; i < coeffs.size(); i++) {
         coeffs[i] = rdm(low, high);
     }
@@ -75,7 +75,7 @@ int main(){
         xdata[i] = start + ((double) i * (end - start) / (xdata.size() - 1));
     }
     
-    generateData(xdata, ydata, coeffs, 1, 5);
+    generateNoisyData(xdata, ydata, coeffs, 1, 5);
     construct_A(A, xdata);
     construct_b(b, xdata, ydata);
     LUsolve(A, b, sol);

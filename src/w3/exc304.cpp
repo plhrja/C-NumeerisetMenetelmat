@@ -12,7 +12,7 @@ using namespace std;
 void generateSequence(vector<double>* container, double lastElem, int elemCount, double noiseRange) {
     (*container)[elemCount - 1] = lastElem;
     for (int i = elemCount - 1; i > 1; i--) {
-        double constraint = (double) i  / (i - 1);
+        double constraint = (i % 2) ? 1 : (double) i  / (i - 1);
         double noise = (noiseRange <= 0) ? 1 : 1 + noiseRange;
         (*container)[i-1] = constraint * (*container)[i] * noise;
     }
@@ -47,7 +47,7 @@ int main() {
         vector<double> f1(ppoints);
         vector<double> f2(ppoints);
 
-        generateSequence(&seq, 0.01, sequenceSize, 0.1);
+        generateSequence(&seq, 0.01, sequenceSize, 0);
 
         for (int i = 0; i < ppoints; i++) {
             double xx = i * ((double) M_PI / ppoints);
