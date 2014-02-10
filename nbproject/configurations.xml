@@ -21,11 +21,8 @@
         <itemPath>src/w1/exc105.c</itemPath>
       </logicalFolder>
       <logicalFolder name="w2" displayName="w2" projectFiles="true">
-        <itemPath>src/w2/A202.mat</itemPath>
-        <itemPath>src/w2/a</itemPath>
-        <itemPath>src/w2/b202.mat</itemPath>
-        <itemPath>src/w2/exc201.cpp</itemPath>
-        <itemPath>src/w2/exc202.cpp</itemPath>
+        <itemPath>../../excercises/w2/exc201.cpp</itemPath>
+        <itemPath>w2/exc202.cpp</itemPath>
         <itemPath>src/w2/exc203.cpp</itemPath>
         <itemPath>src/w2/exc204.cpp</itemPath>
         <itemPath>src/w2/exc205.cpp</itemPath>
@@ -36,22 +33,30 @@
         <itemPath>src/w3/exc302.cpp</itemPath>
         <itemPath>src/w3/exc303.cpp</itemPath>
         <itemPath>src/w3/exc304.cpp</itemPath>
-        <itemPath>src/w3/exc305.cpp</itemPath>
       </logicalFolder>
       <logicalFolder name="w4" displayName="w4" projectFiles="true">
         <logicalFolder name="data" displayName="data" projectFiles="true">
           <itemPath>src/w4/data/datapoints.dat</itemPath>
+          <itemPath>src/w4/data/exc404A.mat</itemPath>
+          <itemPath>src/w4/data/f1points.dat</itemPath>
+          <itemPath>src/w4/data/f2points.dat</itemPath>
           <itemPath>src/w4/data/fpoints.dat</itemPath>
+          <itemPath>src/w4/data/fpoints0.dat</itemPath>
+          <itemPath>src/w4/data/fpoints1.dat</itemPath>
+          <itemPath>src/w4/data/fpoints2.dat</itemPath>
+          <itemPath>src/w4/data/fpoints3.dat</itemPath>
+          <itemPath>src/w4/data/xpoints</itemPath>
         </logicalFolder>
         <itemPath>src/w4/exc401.cpp</itemPath>
+        <itemPath>src/w4/exc402.cpp</itemPath>
         <itemPath>src/w4/exc403.cpp</itemPath>
+        <itemPath>src/w4/exc404.cpp</itemPath>
+        <itemPath>src/w4/exc405.cpp</itemPath>
         <itemPath>src/w4/mnmx.dat</itemPath>
         <itemPath>src/w4/plot.cmd</itemPath>
       </logicalFolder>
       <itemPath>src/mutils.cpp</itemPath>
       <itemPath>src/mutils.h</itemPath>
-      <itemPath>src/myeigen.cpp</itemPath>
-      <itemPath>src/myeigen.h</itemPath>
     </logicalFolder>
     <logicalFolder name="TestFiles"
                    displayName="Test Files"
@@ -68,7 +73,7 @@
   <sourceRootList>
     <Elem>../../../../../fs2/home/rsirvio/NetBeansProjects/C-NumeerisetMenetelmat/src/w1</Elem>
     <Elem>src/w1</Elem>
-    <Elem>src/w2</Elem>
+    <Elem>w2</Elem>
     <Elem>src/w3</Elem>
     <Elem>src/w4</Elem>
   </sourceRootList>
@@ -76,7 +81,7 @@
   <confs>
     <conf name="Debug" type="1">
       <toolsSet>
-        <compilerSet>default</compilerSet>
+        <compilerSet>GNU|GNU</compilerSet>
         <dependencyChecking>true</dependencyChecking>
         <rebuildPropChanged>false</rebuildPropChanged>
       </toolsSet>
@@ -85,13 +90,11 @@
           <standard>8</standard>
         </ccTool>
       </compileType>
+      <item path="../../excercises/w2/exc201.cpp" ex="false" tool="1" flavor2="0">
+      </item>
       <item path="src/mutils.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="src/mutils.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="src/myeigen.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="src/myeigen.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="src/w1/a.out" ex="false" tool="3" flavor2="0">
       </item>
@@ -105,16 +108,6 @@
       </item>
       <item path="src/w1/exc105.c" ex="false" tool="0" flavor2="0">
       </item>
-      <item path="src/w2/A202.mat" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="src/w2/a" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="src/w2/b202.mat" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="src/w2/exc201.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="src/w2/exc202.cpp" ex="false" tool="1" flavor2="0">
-      </item>
       <item path="src/w2/exc203.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="src/w2/exc204.cpp" ex="false" tool="1" flavor2="0">
@@ -127,19 +120,41 @@
       </item>
       <item path="src/w3/exc304.cpp" ex="false" tool="1" flavor2="0">
       </item>
-      <item path="src/w3/exc305.cpp" ex="false" tool="1" flavor2="0">
-      </item>
       <item path="src/w4/data/datapoints.dat" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/w4/data/exc404A.mat" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/w4/data/f1points.dat" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/w4/data/f2points.dat" ex="false" tool="3" flavor2="0">
       </item>
       <item path="src/w4/data/fpoints.dat" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="src/w4/data/fpoints0.dat" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/w4/data/fpoints1.dat" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/w4/data/fpoints2.dat" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/w4/data/fpoints3.dat" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/w4/data/xpoints" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="src/w4/exc401.cpp" ex="false" tool="1" flavor2="0">
       </item>
+      <item path="src/w4/exc402.cpp" ex="false" tool="1" flavor2="0">
+      </item>
       <item path="src/w4/exc403.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/w4/exc404.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/w4/exc405.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="src/w4/mnmx.dat" ex="false" tool="3" flavor2="0">
       </item>
       <item path="src/w4/plot.cmd" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="w2/exc202.cpp" ex="false" tool="1" flavor2="0">
       </item>
     </conf>
     <conf name="Release" type="1">
@@ -162,13 +177,11 @@
           <developmentMode>5</developmentMode>
         </asmTool>
       </compileType>
+      <item path="../../excercises/w2/exc201.cpp" ex="false" tool="1" flavor2="0">
+      </item>
       <item path="src/mutils.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="src/mutils.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="src/myeigen.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="src/myeigen.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="src/w1/a.out" ex="false" tool="3" flavor2="0">
       </item>
@@ -182,16 +195,6 @@
       </item>
       <item path="src/w1/exc105.c" ex="false" tool="0" flavor2="0">
       </item>
-      <item path="src/w2/A202.mat" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="src/w2/a" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="src/w2/b202.mat" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="src/w2/exc201.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="src/w2/exc202.cpp" ex="false" tool="1" flavor2="0">
-      </item>
       <item path="src/w2/exc203.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="src/w2/exc204.cpp" ex="false" tool="1" flavor2="0">
@@ -204,19 +207,41 @@
       </item>
       <item path="src/w3/exc304.cpp" ex="false" tool="1" flavor2="0">
       </item>
-      <item path="src/w3/exc305.cpp" ex="false" tool="1" flavor2="0">
-      </item>
       <item path="src/w4/data/datapoints.dat" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/w4/data/exc404A.mat" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/w4/data/f1points.dat" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/w4/data/f2points.dat" ex="false" tool="3" flavor2="0">
       </item>
       <item path="src/w4/data/fpoints.dat" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="src/w4/data/fpoints0.dat" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/w4/data/fpoints1.dat" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/w4/data/fpoints2.dat" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/w4/data/fpoints3.dat" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/w4/data/xpoints" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="src/w4/exc401.cpp" ex="false" tool="1" flavor2="0">
       </item>
+      <item path="src/w4/exc402.cpp" ex="false" tool="1" flavor2="0">
+      </item>
       <item path="src/w4/exc403.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/w4/exc404.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/w4/exc405.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="src/w4/mnmx.dat" ex="false" tool="3" flavor2="0">
       </item>
       <item path="src/w4/plot.cmd" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="w2/exc202.cpp" ex="false" tool="1" flavor2="0">
       </item>
     </conf>
   </confs>

@@ -24,10 +24,10 @@ void construct_A(Mat_DP& A, Vec_DP& xdata){
         sums[i] = 0;
     }
     for (int i = 0; i < xdata.size(); i++) {
-        sums[0] += 2 * xdata[i]; 
-        sums[1] += 2 * pow(xdata[i], 2); 
-        sums[2] += 2 * pow(xdata[i], 3); 
-        sums[3] += 2 * pow(xdata[i], 4); 
+        sums[0] += xdata[i]; 
+        sums[1] += pow(xdata[i], 2); 
+        sums[2] += pow(xdata[i], 3); 
+        sums[3] += pow(xdata[i], 4); 
     }
     
     A[0][0] = sums[3];
@@ -38,7 +38,7 @@ void construct_A(Mat_DP& A, Vec_DP& xdata){
     A[1][2] = sums[0];
     A[2][0] = sums[1];
     A[2][1] = sums[0];
-    A[2][2] = 2 * xdata.size();
+    A[2][2] = xdata.size();
 }
 
 void construct_b(Vec_DP& b, Vec_DP& xdata, Vec_DP& ydata){
@@ -47,9 +47,9 @@ void construct_b(Vec_DP& b, Vec_DP& xdata, Vec_DP& ydata){
         sums[i] = 0;
     }
     for (int i = 0; i < xdata.size(); i++) {
-        sums[0] += 2 * ydata[i] * pow(xdata[i], 2); 
-        sums[1] += 2 * ydata[i] * xdata[i]; 
-        sums[2] += 2 * ydata[i]; 
+        sums[0] += ydata[i] * pow(xdata[i], 2); 
+        sums[1] += ydata[i] * xdata[i]; 
+        sums[2] += ydata[i]; 
     }
     
     b[0] = sums[0];
@@ -84,8 +84,8 @@ int main(){
         fittedData[i] = sol[0]*pow(xdata[i],2) + sol[1]*xdata[i] + sol[2];
     }
     
-    cout << endl << "Actual coefficients = " << coeffs << endl;
-    cout << "Calculated through LSQ = " << sol << endl;
+    cout << endl << "Actual coefficients =\n" << coeffs << endl;
+    cout << "Calculated through LSQ =\n" << sol;
     
     //-------------------------------------------plotting-------------------------------------------
     
