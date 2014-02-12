@@ -4,13 +4,15 @@
 #include <vector>
 #include <fstream>
 #include <iostream>
+#include <solve.h>
 #include "nr.h"
 #include "matutl02.h"
+#include "mutils.h"
 
 #define MUL_DEF 1.1
 
-void isolateRow(Mat_DP& mtr, int row, Mat_DP& rowMtr) {
-    if(mtr.ncols() != rowMtr.nrows() || row >= mtr.nrows()){
+void mutils::isolateRow(const Mat_DP &mtr, int row, Mat_DP &rowMtr) {
+    if (mtr.ncols() != rowMtr.nrows() || row >= mtr.nrows()) {
         cout << "invalid matrix dimensions!" << endl;
         return;
     }
@@ -19,8 +21,8 @@ void isolateRow(Mat_DP& mtr, int row, Mat_DP& rowMtr) {
     }
 }
 
-void isolateCol(Mat_DP& mtr, int col, Mat_DP& colMtr) {
-    if(mtr.nrows() != colMtr.nrows() || col >= mtr.ncols()){
+void mutils::isolateCol(const Mat_DP &mtr, int col, Mat_DP &colMtr) {
+    if (mtr.nrows() != colMtr.nrows() || col >= mtr.ncols()) {
         cout << "invalid matrix dimensions!" << endl;
         return;
     }
@@ -29,8 +31,8 @@ void isolateCol(Mat_DP& mtr, int col, Mat_DP& colMtr) {
     }
 }
 
-void isolateRow(Mat_DP& mtr, int row, Vec_DP& rowVec) {
-    if(mtr.ncols() != rowVec.size() || row >= mtr.nrows()){
+void mutils::isolateRow(const Mat_DP &mtr, int row, Vec_DP &rowVec) {
+    if (mtr.ncols() != rowVec.size() || row >= mtr.nrows()) {
         cout << "invalid matrix dimensions!" << endl;
         return;
     }
@@ -39,8 +41,8 @@ void isolateRow(Mat_DP& mtr, int row, Vec_DP& rowVec) {
     }
 }
 
-void isolateCol(Mat_DP& mtr, int col, Vec_DP& colVec) {
-    if(mtr.nrows() != colVec.size() || col >= mtr.ncols()){
+void mutils::isolateCol(const Mat_DP &mtr, int col, Vec_DP &colVec) {
+    if (mtr.nrows() != colVec.size() || col >= mtr.ncols()) {
         cout << "invalid matrix dimensions!" << endl;
         return;
     }
@@ -49,7 +51,7 @@ void isolateCol(Mat_DP& mtr, int col, Vec_DP& colVec) {
     }
 }
 
-void generatePlottingData(Mat_DP xdata, Mat_DP ydata, const char* fname) {
+void mutils::generatePlottingData(const Mat_DP &xdata, const Mat_DP &ydata, const char* fname) {
     std::ofstream f(fname);
 
     for (int i = 0; i < xdata.nrows(); i++) {
@@ -60,7 +62,7 @@ void generatePlottingData(Mat_DP xdata, Mat_DP ydata, const char* fname) {
     f.close();
 }
 
-void generatePlottingData(std::vector<double> xdata, std::vector<double> ydata, const char* fname) {
+void mutils::generatePlottingData(const std::vector<double> &xdata, const std::vector<double> &ydata, const char* fname) {
     std::ofstream f(fname);
 
     for (int i = 0; i < xdata.size(); i++) {
@@ -71,7 +73,7 @@ void generatePlottingData(std::vector<double> xdata, std::vector<double> ydata, 
     f.close();
 }
 
-void generatePlottingData(Vec_DP xdata, Vec_DP ydata, const char* fname) {
+void mutils::generatePlottingData(const Vec_DP &xdata, const Vec_DP &ydata, const char* fname) {
     std::ofstream f(fname);
 
     for (int i = 0; i < xdata.size(); i++) {
@@ -82,22 +84,22 @@ void generatePlottingData(Vec_DP xdata, Vec_DP ydata, const char* fname) {
     f.close();
 }
 
-void generatePlottingData(Mat_DP xdata, Mat_DP ydata, std::string fnameString) {
+void mutils::generatePlottingData(const Mat_DP &xdata, const Mat_DP &ydata, std::string fnameString) {
     const char* str = fnameString.c_str();
     generatePlottingData(xdata, ydata, str);
 }
 
-void generatePlottingData(std::vector<double> xdata, std::vector<double> ydata, std::string fnameString) {
+void mutils::generatePlottingData(const std::vector<double> &xdata, const std::vector<double> &ydata, std::string fnameString) {
     const char* str = fnameString.c_str();
     generatePlottingData(xdata, ydata, str);
 }
 
-void generatePlottingData(Vec_DP xdata, Vec_DP ydata, std::string fnameString) {
+void mutils::generatePlottingData(const Vec_DP &xdata, const Vec_DP &ydata, std::string fnameString) {
     const char* str = fnameString.c_str();
     generatePlottingData(xdata, ydata, str);
 }
 
-void DDmatrix(Mat_DP& A, double mul, double low, double high) {
+void mutils::DDmatrix(Mat_DP &A, double mul, double low, double high) {
     ranmat2(A, low, high);
     mul = (mul < 1) ? MUL_DEF : mul;
 
@@ -111,7 +113,7 @@ void DDmatrix(Mat_DP& A, double mul, double low, double high) {
     }
 }
 
-bool isDDmatrix(Mat_DP& A) {
+bool mutils::isDDmatrix(const Mat_DP &A) {
     for (int i = 0; i < A.nrows(); i++) {
         double sum = 0;
 
@@ -128,23 +130,71 @@ bool isDDmatrix(Mat_DP& A) {
     return true;
 }
 
-void eigen(Mat_DP &a, Vec_CPLX_DP &w) {
+void mutils::eigen(Mat_DP &a, Vec_CPLX_DP &w) {
     NR::balanc(a);
     NR::elmhes(a);
     NR::hqr(a, w);
 }
 
-void LUsolve(Mat_DP a, Vec_DP b, Vec_DP &x){
+void mutils::LUsolve(Mat_DP a, Vec_DP b, Vec_DP &x) {
     int rows = a.nrows(), cols = a.ncols(), mb = b.size(), xsize = x.size();
     if ((rows != cols) || (rows != mb) || (rows != xsize)) {
         cout << "Matrix/vector dimension error in LUsolve. " << endl;
         abort();
     }
-    
+
     DP p;
     Vec_INT indx(rows);
-   
+
     NR::ludcmp(a, indx, p);
     NR::lubksb(a, indx, b);
     x = b;
+}
+
+void mutils::polyfit_LU(const Vec_DP &xdata, const Vec_DP &ydata, Vec_DP &coeffs, int degree) {
+    if (coeffs.size() < degree + 1 || ydata.size() != xdata.size()) {
+        perror("Unbalanced parameter sizes!");
+        return;
+    }
+
+    Mat_DP A(degree + 1, degree + 1);
+    Vec_DP b(degree + 1);
+    
+    for (int n = 1; n <= degree * 2; n++) {
+        double sum = 0;
+        for (int i = 0; i < xdata.size(); i++) {
+            sum += pow(xdata[i], n);
+        }
+        for (int i = max(0, degree - n); i <= min(degree, (degree*2) - n); ++i) {
+                int j = 2 * degree - n - i;
+                A[i][j] = sum;
+            }
+    }
+    A[degree][degree] = xdata.size();
+    
+    for (int n = 0; n < degree + 1; n++) {
+        double sum = 0;
+        for (int i = 0; i < xdata.size(); i++) {
+            sum += ydata[i] * pow(xdata[i], n);
+        }
+        b[degree - n] = sum;
+    }
+    mutils::LUsolve(A, b, coeffs);
+}
+
+void mutils::polyfit_SVD(const Vec_DP &xdata, const Vec_DP &ydata, Vec_DP &coeffs, int degree){
+    if (coeffs.size() < degree + 1 || ydata.size() != xdata.size()) {
+        perror("Unbalanced parameter sizes!");
+        return;
+    }
+    
+    Mat_DP A(xdata.size(), degree + 1);
+    Vec_DP b(xdata.size());
+    for (int i = 0; i < xdata.size(); i++) {
+        for (int j = 0; j < degree + 1; j++) {
+            A[i][j] = pow(xdata[i], degree - j);
+        }
+        b[i] = ydata[i];
+    }
+    SVDsolve(A, b, coeffs);
 }

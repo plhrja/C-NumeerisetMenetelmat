@@ -76,9 +76,7 @@ int main(){
     }
     
     generateNoisyData(xdata, ydata, coeffs, 1, 5);
-    construct_A(A, xdata);
-    construct_b(b, xdata, ydata);
-    LUsolve(A, b, sol);
+    polyfit_LU(xdata, ydata, sol, 2);
     
     for (int i = 0; i < xdata.size(); i++) {
         fittedData[i] = sol[0]*pow(xdata[i],2) + sol[1]*xdata[i] + sol[2];

@@ -12,9 +12,10 @@
             <sourceRootList>
                 <sourceRootElem>../../../../../fs2/home/rsirvio/NetBeansProjects/C-NumeerisetMenetelmat/src/w1</sourceRootElem>
                 <sourceRootElem>src/w1</sourceRootElem>
-                <sourceRootElem>w2</sourceRootElem>
+                <sourceRootElem>src/w2</sourceRootElem>
                 <sourceRootElem>src/w3</sourceRootElem>
                 <sourceRootElem>src/w4</sourceRootElem>
+                <sourceRootElem>src/w5</sourceRootElem>
             </sourceRootList>
             <confList>
                 <confElem>

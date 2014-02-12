@@ -19,9 +19,9 @@ void constructCoeffs(Vec_DP& c, Vec_DP& d){
 
 void constructSystem(Mat_DP& A, Vec_DP& b, Vec_DP& c, Vec_DP& d, int n){
     for (int i = 0; i < n; i++) {
-        A[i][0] = c[i]; 
-        A[i][1] = -1;
-        b[i] = -d[i];
+        A[i][0] = -c[i]; 
+        A[i][1] = 1;
+        b[i] = d[i];
     }
 }
 
