@@ -36,7 +36,7 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 # Object Files
 OBJECTFILES= \
 	${OBJECTDIR}/src/mutils.o \
-	${OBJECTDIR}/src/myeigen.o \
+	${OBJECTDIR}/src/myHOUSE.o \
 	${OBJECTDIR}/src/myplot.o \
 	${OBJECTDIR}/src/w1/exc101.o \
 	${OBJECTDIR}/src/w1/exc102.o \
@@ -57,6 +57,7 @@ OBJECTFILES= \
 	${OBJECTDIR}/src/w4/exc403.o \
 	${OBJECTDIR}/src/w4/exc404.o \
 	${OBJECTDIR}/src/w4/exc405.o \
+	${OBJECTDIR}/src/w5/exc502.o \
 	${OBJECTDIR}/src/w5/exc505.o \
 	${OBJECTDIR}/src/w5/exc506.o
 
@@ -90,10 +91,10 @@ ${OBJECTDIR}/src/mutils.o: src/mutils.cpp
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/mutils.o src/mutils.cpp
 
-${OBJECTDIR}/src/myeigen.o: src/myeigen.cpp 
+${OBJECTDIR}/src/myHOUSE.o: src/myHOUSE.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/myeigen.o src/myeigen.cpp
+	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/myHOUSE.o src/myHOUSE.cpp
 
 ${OBJECTDIR}/src/myplot.o: src/myplot.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src
@@ -194,6 +195,11 @@ ${OBJECTDIR}/src/w4/exc405.o: src/w4/exc405.cpp
 	${MKDIR} -p ${OBJECTDIR}/src/w4
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/w4/exc405.o src/w4/exc405.cpp
+
+${OBJECTDIR}/src/w5/exc502.o: src/w5/exc502.cpp 
+	${MKDIR} -p ${OBJECTDIR}/src/w5
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/w5/exc502.o src/w5/exc502.cpp
 
 ${OBJECTDIR}/src/w5/exc505.o: src/w5/exc505.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src/w5

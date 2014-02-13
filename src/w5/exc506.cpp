@@ -40,9 +40,14 @@ void plotFitted(const Vec_DP &xdata, const Vec_DP &ydata, const Vec_DP &coeffs){
 }
 
 int main(){
-    Vec_DP coeffs(3), xdata(5), ydata(5);
+    Vec_DP coeffs1(3), coeffs2(3), xdata(5), ydata(5);
     constructData(xdata, ydata);
     
-    mutils::polyfit_SVD(xdata, ydata, coeffs, 2);
-    plotFitted(xdata, ydata, coeffs);
+    mutils::polyfit_SVD(xdata, ydata, coeffs1, 2);
+    cout << "Coeffs obtained through SVD = " << coeffs1 << endl;
+    plotFitted(xdata, ydata, coeffs1);
+    
+    mutils::polyfit_HOUSE(xdata, ydata, coeffs2, 2);
+    cout << "Coeffs obtained through HOUSE = " << coeffs2 << endl;
+    plotFitted(xdata, ydata, coeffs2);
 }

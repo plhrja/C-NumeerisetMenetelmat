@@ -174,13 +174,13 @@ namespace myplot {
                 case '7': {siz='7'; break;}
                 case '8': {siz='8'; break;}
                 case '9': {siz='9'; break;}
-                case '.': {st='p'; break;}
-                case 'o': {st='p'; pt='1'; break;}
+                case '.': {st='p'; pt='7';break;}
+                case 'o': {st='p'; pt='6'; break;}
                 case 'x': {st='p'; pt='4'; break;}
-                case '+': {st='p'; pt='8'; break;}
-                case '*': {st='p'; pt='6'; break;}
+                case '+': {st='p'; pt='1'; break;}
+                case '*': {st='p'; pt='8'; break;}
                 case 's': {st='p'; pt='3'; break;}
-                case 'd': {st='p'; pt='1'; break;}
+                case 'd': {st='p'; pt='9'; break;}
                 case '^': {st='p'; pt='5'; break;}
                 case '-': {st='l'; break;}
                 default : break;

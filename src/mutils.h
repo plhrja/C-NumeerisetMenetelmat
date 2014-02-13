@@ -40,4 +40,6 @@ namespace mutils {
     void polyfit_LU(const Vec_DP &xdata, const Vec_DP &ydata, Vec_DP &coeffs, int degree);
 
     void polyfit_SVD(const Vec_DP &xdata, const Vec_DP &ydata, Vec_DP &coeffs, int degree);
+    
+    void polyfit_HOUSE(const Vec_DP &xdata, const Vec_DP &ydata, Vec_DP &coeffs, int degree);
 }
