@@ -21,14 +21,10 @@ void constructData_A(Vec_DP &xdata, Vec_DP &ydata) {
 }
 
 void constructData_B(Vec_DP &xdata, Vec_DP &ydata) {
-    double xlow = 0;
-    double xhigh = 3;
     double ylow = -10;
     double yhigh = 10;
-    xdata[0] = rdm(xlow, 2);
-    ydata[0] = rdm(ylow, yhigh);
-    for (int i = 1; i < xdata.size(); i++) {
-        xdata[i] = rdm(xdata[i-1], xdata[i-1] + xhigh);
+    for (int i = 0; i < xdata.size(); i++) {
+        xdata[i] = i + 1;
         ydata[i] = rdm(ylow, yhigh);
     }
 }

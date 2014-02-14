@@ -57,7 +57,10 @@ OBJECTFILES= \
 	${OBJECTDIR}/src/w4/exc403.o \
 	${OBJECTDIR}/src/w4/exc404.o \
 	${OBJECTDIR}/src/w4/exc405.o \
+	${OBJECTDIR}/src/w5/exc501.o \
 	${OBJECTDIR}/src/w5/exc502.o \
+	${OBJECTDIR}/src/w5/exc503.o \
+	${OBJECTDIR}/src/w5/exc504.o \
 	${OBJECTDIR}/src/w5/exc505.o \
 	${OBJECTDIR}/src/w5/exc506.o
 
@@ -196,10 +199,25 @@ ${OBJECTDIR}/src/w4/exc405.o: src/w4/exc405.cpp
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/w4/exc405.o src/w4/exc405.cpp
 
+${OBJECTDIR}/src/w5/exc501.o: src/w5/exc501.cpp 
+	${MKDIR} -p ${OBJECTDIR}/src/w5
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/w5/exc501.o src/w5/exc501.cpp
+
 ${OBJECTDIR}/src/w5/exc502.o: src/w5/exc502.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src/w5
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/w5/exc502.o src/w5/exc502.cpp
+
+${OBJECTDIR}/src/w5/exc503.o: src/w5/exc503.cpp 
+	${MKDIR} -p ${OBJECTDIR}/src/w5
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/w5/exc503.o src/w5/exc503.cpp
+
+${OBJECTDIR}/src/w5/exc504.o: src/w5/exc504.cpp 
+	${MKDIR} -p ${OBJECTDIR}/src/w5
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/w5/exc504.o src/w5/exc504.cpp
 
 ${OBJECTDIR}/src/w5/exc505.o: src/w5/exc505.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src/w5

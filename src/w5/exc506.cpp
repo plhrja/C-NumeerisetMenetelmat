@@ -20,11 +20,11 @@ void constructData(Vec_DP &xdata, Vec_DP &ydata){
 
 void plotFitted(const Vec_DP &xdata, const Vec_DP &ydata, const Vec_DP &coeffs){
     int start = 0;
-    int end = 7;
+    int end = 5;
     int pointnum = 100;
     myplot::data_set dataContainer;
     myplot::plot_data poly("c-2");
-    myplot::plot_data points("k.2");
+    myplot::plot_data points("k+2");
     
     for (int i = 0; i < pointnum; i++) {
         double x = start + ((double) i * (end - start) / (pointnum - 1)); 

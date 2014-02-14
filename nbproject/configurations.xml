@@ -52,7 +52,10 @@
         <itemPath>src/w4/plot.cmd</itemPath>
       </logicalFolder>
       <logicalFolder name="w5" displayName="w5" projectFiles="true">
+        <itemPath>src/w5/exc501.cpp</itemPath>
         <itemPath>src/w5/exc502.cpp</itemPath>
+        <itemPath>src/w5/exc503.cpp</itemPath>
+        <itemPath>src/w5/exc504.cpp</itemPath>
         <itemPath>src/w5/exc505.cpp</itemPath>
         <itemPath>src/w5/exc506.cpp</itemPath>
       </logicalFolder>
@@ -162,7 +165,13 @@
       </item>
       <item path="src/w4/plot.cmd" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="src/w5/exc501.cpp" ex="false" tool="1" flavor2="0">
+      </item>
       <item path="src/w5/exc502.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/w5/exc503.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/w5/exc504.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="src/w5/exc505.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -255,7 +264,13 @@
       </item>
       <item path="src/w4/plot.cmd" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="src/w5/exc501.cpp" ex="false" tool="1" flavor2="0">
+      </item>
       <item path="src/w5/exc502.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/w5/exc503.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/w5/exc504.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="src/w5/exc505.cpp" ex="false" tool="1" flavor2="0">
       </item>
