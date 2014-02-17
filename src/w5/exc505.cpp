@@ -11,95 +11,118 @@
 
 using namespace std;
 
-double normDiff(Mat_DP &A, Mat_DP &B){
+double normDiff(Mat_DP &A, Mat_DP &B) {
     Mat_DP diff = A - B;
     return mnormp(diff, 2);
 }
 
-void printFail(const Mat_DP &A, const Mat_DP &B, double diff, int n, const char* Aname, const char* Bname){
-    cout << "FAIL! (n = " << n << "),  |" << Aname << " - " << Bname << "| = " << diff << endl;
+void printFail(double diff, int n, int m, const char* Aname, const char* Bname) {
+    cout << "FAIL! (n = " << n << "," << m << "),  |"
+            << Aname << " - " << Bname << "| = " << diff << endl;
 }
 
-void printResults(int testCount, int fails){
+void printResults(int testCount, int fails) {
     cout << "test count = " << testCount << endl;
     cout << "fails = " << fails << endl;
     cout << "ratio = " << ((double) fails / testCount) * 100 << "%" << endl << endl;
 }
 
-void testCaseA(int testCount, double low, double high){
+void testCaseA(int testCount, double low, double high) {
     int fails = 0;
+    int counter = 0;
     int powers = 6;
     for (int n = 2; n <= pow(2, powers); n *= 2) {
-        for (int i = 0; i < testCount; i++) {
-            Mat_DP A(n, n + 1), pinvA(n + 1,n), pinvpinvA(n,n + 1);
-            
-            ranmat2(A, low, high);
-            pseudoinv(A, pinvA);
-            pseudoinv(pinvA, pinvpinvA);
-            double diff = normDiff(A, pinvpinvA);
-            
-            if(diff > EPS){
-                fails++;
-                printFail(A, pinvpinvA, diff, n, "A", "A^++");
+        for (int m = n; m <= pow(2, powers); m *= 2) {
+            for (int i = 0; i < testCount; i++) {
+                counter++;
+                Mat_DP A(m, n), pinvA(n, m), pinvpinvA(m, n);
+
+                ranmat2(A, low, high);
+                pseudoinv(A, pinvA);
+                pseudoinv(pinvA, pinvpinvA);
+                double diff = normDiff(A, pinvpinvA);
+
+                if (diff > EPS) {
+                    fails++;
+                    printFail(diff, n, m, "A", "A^++");
+                }
             }
         }
     }
-    printResults(testCount * powers, fails);
+    printResults(counter, fails);
 }
 
-void testCaseB(int testCount, double low, double high){
+void testCaseB(int testCount, double low, double high) {
     int fails = 0;
-    int powers = 6;
+    int counter = 0;
+    int powers = 5;
     for (int n = 2; n <= pow(2, powers); n *= 2) {
-        for (int i = 0; i < testCount; i++) {
-            Mat_DP A(n, n + 1), pinvA(n + 1,n), transpA(n + 1,n), pinvTranspA(n,n + 1), transpPinvA(n,n + 1);
-            
-            ranmat2(A, low, high);
-            transp(A, transpA);
-            pseudoinv(A, pinvA);
-            transp(pinvA, transpPinvA);
-            pseudoinv(transpA, pinvTranspA);
-            double diff = normDiff(transpPinvA, pinvTranspA);
-            
-            if(diff > EPS){
-                fails++;
-                printFail(transpPinvA, pinvTranspA, diff, n, "(A^+)^T", "(A^T)^+");
+        for (int m = n; m <= pow(2, powers); m *= 2) {
+            for (int i = 0; i < testCount; i++) {
+                counter++;
+                Mat_DP A(m, n), pinvA(n, m), transpA(n, m), pinvTranspA(m, n), transpPinvA(m, n);
+
+                ranmat2(A, low, high);
+                transp(A, transpA);
+                pseudoinv(A, pinvA);
+                transp(pinvA, transpPinvA);
+                pseudoinv(transpA, pinvTranspA);
+                double diff = normDiff(transpPinvA, pinvTranspA);
+
+                if (diff > EPS) {
+                    fails++;
+                    printFail(diff, n, m, "(A^+)^T", "(A^T)^+");
+                }
             }
         }
     }
-    printResults(testCount * powers, fails);
+    printResults(counter, fails);
 }
 
-void testCaseC(int testCount, double low, double high){
+void testCaseC(int testCount, double low, double high) {
     int fails = 0;
-    int powers = 6;
+    int counter = 0;
+    int powers = 5;
     for (int n = 2; n <= pow(2, powers); n *= 2) {
-        for (int i = 0; i < testCount; i++) {
-            Mat_DP A(n, n + 1), B(n + 1,n), AB(n,n), pinvA(n + 1,n),
-                    pinvB(n,n + 1), pinvAPinvB();
-            
-            ranmat2(A, low, high);
-            double diff = normDiff(A, B);
-            
-            if(diff > EPS){
-                fails++;
-                printFail(A, B, diff, n, "(A^+)^T", "(A^T)^+");
+        for (int m = n; m <= pow(2, powers); m *= 2) {
+            for (int i = 0; i < testCount; i++) {
+                counter++;
+                int p = rdm(1, m + n);
+                Mat_DP A(m, n), B(n, p), AB(m, p), pinvAB(p, m),
+                        pinvA(n, m), pinvB(p, n ), pinvBPinvA(p, m);
+
+                ranmat2(A, low, high);
+                ranmat2(B, low, high);
+                pseudoinv(A, pinvA);
+                pseudoinv(B, pinvB);
+                AB = A * B;
+                pseudoinv(AB, pinvAB);
+                pinvBPinvA = pinvB * pinvA;
+                double diff = normDiff(pinvAB, pinvBPinvA);
+                if (diff > EPS) {
+                    fails++;
+                    printFail(diff, n, m, "(AB)^+", "B^+A^+");
+                }
             }
         }
     }
-    printResults(testCount * powers, fails);
+    printResults(counter, fails);
 }
 
-int main(){
+int main() {
     init_srand();
-    int testCount = 100;
+    int testCount = 50;
     int low = -100;
     int high = 100;
-    
-    cout << "Testing pseudoinverse of pseudoinverse" << endl;
+
+    cout << "1st case" << endl;
     testCaseA(testCount, low, high);
     getchar();
-    
-    cout << "Testing transpose of pseudoinverse and pseudoinverse of transpose" << endl;
+
+    cout << "2nd case" << endl;
     testCaseB(testCount, low, high);
+    getchar();
+
+    cout << "3rd case" << endl;
+    testCaseC(testCount, low, high);
 }

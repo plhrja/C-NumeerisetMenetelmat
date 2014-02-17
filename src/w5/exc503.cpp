@@ -25,10 +25,10 @@ double get_max_error(const Vec_DP &error){
     return max;
 }
 
-double interp_spline(const Vec_DP &xdata, const Vec_DP &ydata,
+double interp_spline_natural(const Vec_DP &xdata, const Vec_DP &ydata,
         Vec_DP &interpx, Vec_DP &interpy, Vec_DP &error) {
     Vec_DP y2(xdata.size());
-    NR::spline(xdata, ydata, -2.29428, 0.934735, y2);
+    NR::spline(xdata, ydata, INFINITY, INFINITY, y2);
     for (int i = 0; i < interpx.size(); i++) {
         double y, x = 0.6 + ((double) i * 1.9)/(interpx.size() - 1);
         NR::splint(xdata, ydata, y2, x, y);
@@ -68,7 +68,7 @@ int main(){
     Vec_DP xdata(20), ydata(20), interpx(200), interpy(200), error(200);
     double max_error;
     construct_data(xdata, ydata);
-    max_error = interp_spline(xdata, ydata, interpx, interpy, error);
+    max_error = interp_spline_natural(xdata, ydata, interpx, interpy, error);
     cout << "max error in spline interpolation = " << max_error << endl;
     plotInterp(xdata, ydata, interpx, interpy);
 }

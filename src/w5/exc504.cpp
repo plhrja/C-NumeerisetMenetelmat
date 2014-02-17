@@ -36,11 +36,13 @@ void plot_two(const Vec_DP &xdata1, const Vec_DP &ydata1,
 }
 
 int main() {
+//    double a = -2;
+//    double b = 2;
+//    double(*f)(double)  = [](double x){return pow(x, 2);};
     double a = 0;
     double b = 4 * M_PI;
-    int pointnum = 1000;
-//    double(*f)(double)  = [](double x){return pow(x, 3);};
     double(*f)(double) = &sin;
+    int pointnum = 1000;
     Vec_DP xpoints(pointnum), fpoints(pointnum), sumpoints(pointnum), dders(pointnum);
     
     for (int i = 0; i < pointnum; i++) {

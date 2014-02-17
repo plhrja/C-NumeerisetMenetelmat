@@ -37,10 +37,10 @@ double interp_polint(const Vec_DP &xdata, const Vec_DP &ydata,
     return get_max_error(error);
 }
 
-double interp_spline(const Vec_DP &xdata, const Vec_DP &ydata,
+double interp_spline_periodic(const Vec_DP &xdata, const Vec_DP &ydata, double deriv,
         Vec_DP &interpx, Vec_DP &interpy, Vec_DP &error) {
     Vec_DP y2(xdata.size());
-    NR::spline(xdata, ydata, 1, 0, y2);
+    NR::spline(xdata, ydata, deriv, deriv, y2);
     for (int i = 0; i < interpx.size(); i++) {
         double y, x = i * (M_PI / 200);
         NR::splint(xdata, ydata, y2, x, y);
@@ -49,6 +49,11 @@ double interp_spline(const Vec_DP &xdata, const Vec_DP &ydata,
         error[i] = abs(sin(x) - y);
     }
     return get_max_error(error);
+}
+
+double interp_spline_natural(const Vec_DP &xdata, const Vec_DP &ydata,
+        Vec_DP &interpx, Vec_DP &interpy, Vec_DP &error) {
+    return interp_spline_periodic(xdata, ydata, INFINITY, interpx, interpy, error);
 }
 
 void plotInterp(const Vec_DP &xdata, const Vec_DP &ydata,
@@ -86,8 +91,13 @@ int main(){
     cout << "max error in polynomial interpolation = " << max_error << endl;
     plotInterp(xdata, ydata, interpx, interpy);
     
-    max_error = interp_spline(xdata, ydata, interpx, interpy, error);
-    cout << "max error in spline interpolation = " << max_error << endl;
+    double deriv = 15;
+    max_error = interp_spline_periodic(xdata, ydata, deriv, interpx, interpy, error);
+    cout << "max error in periodic spline interpolation (period = " << deriv << ") = " << max_error << endl;
+    plotInterp(xdata, ydata, interpx, interpy);
+    
+    max_error = interp_spline_natural(xdata, ydata, interpx, interpy, error);
+    cout << "max error in natural spline interpolation = " << max_error << endl;
     plotInterp(xdata, ydata, interpx, interpy);
     
 }
