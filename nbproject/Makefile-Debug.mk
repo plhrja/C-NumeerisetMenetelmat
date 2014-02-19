@@ -38,6 +38,8 @@ OBJECTFILES= \
 	${OBJECTDIR}/src/mutils.o \
 	${OBJECTDIR}/src/myHOUSE.o \
 	${OBJECTDIR}/src/myplot.o \
+	${OBJECTDIR}/src/mysurf.o \
+	${OBJECTDIR}/src/testSurf.o \
 	${OBJECTDIR}/src/w1/exc101.o \
 	${OBJECTDIR}/src/w1/exc102.o \
 	${OBJECTDIR}/src/w1/exc104.o \
@@ -62,7 +64,8 @@ OBJECTFILES= \
 	${OBJECTDIR}/src/w5/exc503.o \
 	${OBJECTDIR}/src/w5/exc504.o \
 	${OBJECTDIR}/src/w5/exc505.o \
-	${OBJECTDIR}/src/w5/exc506.o
+	${OBJECTDIR}/src/w5/exc506.o \
+	${OBJECTDIR}/src/w6/exc602.o
 
 
 # C Compiler Flags
@@ -103,6 +106,16 @@ ${OBJECTDIR}/src/myplot.o: src/myplot.cpp
 	${MKDIR} -p ${OBJECTDIR}/src
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/myplot.o src/myplot.cpp
+
+${OBJECTDIR}/src/mysurf.o: src/mysurf.cpp 
+	${MKDIR} -p ${OBJECTDIR}/src
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/mysurf.o src/mysurf.cpp
+
+${OBJECTDIR}/src/testSurf.o: src/testSurf.cpp 
+	${MKDIR} -p ${OBJECTDIR}/src
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/testSurf.o src/testSurf.cpp
 
 ${OBJECTDIR}/src/w1/exc101.o: src/w1/exc101.c 
 	${MKDIR} -p ${OBJECTDIR}/src/w1
@@ -228,6 +241,11 @@ ${OBJECTDIR}/src/w5/exc506.o: src/w5/exc506.cpp
 	${MKDIR} -p ${OBJECTDIR}/src/w5
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/w5/exc506.o src/w5/exc506.cpp
+
+${OBJECTDIR}/src/w6/exc602.o: src/w6/exc602.cpp 
+	${MKDIR} -p ${OBJECTDIR}/src/w6
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/w6/exc602.o src/w6/exc602.cpp
 
 # Subprojects
 .build-subprojects:

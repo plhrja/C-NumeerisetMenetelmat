@@ -12,8 +12,8 @@ using namespace std;
 
 void der2(double (*f)(double), const Vec_DP &xpoints, Vec_DP &dders, double a, double b) {
     double h = 1e-05;
-    a -= 4 * h;
-    b += 4 * h;
+    a -= 2 * h;
+    b += 2 * h;
     for (int i = 0; i < xpoints.size(); i++) {
         dders[i] = numdf(f, a, b, xpoints[i], h, 2);
     }

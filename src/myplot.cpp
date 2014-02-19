@@ -24,7 +24,7 @@ namespace myplot {
 
     point2d::~point2d() {
     }
-
+    
     std::ostream& operator<<(std::ostream& stream, point2d const& p) {
         stream << p.x << " " << p.y;
         return stream;
@@ -53,7 +53,7 @@ namespace myplot {
             max_y = y;
         points.push_back(point2d(x, y));
     }
-    
+
     int plot_data::size() const {
         return points.size();
     }
@@ -100,6 +100,7 @@ namespace myplot {
     }
     
     static void unpacksty(const char *style, char *ret);
+    static void unpack_surfsty(const char *style, std::string *ret);
 
     void plot(data_set data) {
         
@@ -213,5 +214,12 @@ namespace myplot {
         ret[10 + i] = siz;
         ret[11 + i] = '\0';
     }
+    
+    static void unpack_surfsty(const char *style, std::string *ret) {
+        *ret = (style[0] == '.') ? "with dots" :
+                (style[0] == '+') ? "with points" : "with lines";
+    }
+    
+
 }
 
