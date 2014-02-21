@@ -36,7 +36,6 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 # Object Files
 OBJECTFILES= \
 	${OBJECTDIR}/src/mutils.o \
-	${OBJECTDIR}/src/myHOUSE.o \
 	${OBJECTDIR}/src/myplot.o \
 	${OBJECTDIR}/src/mysurf.o \
 	${OBJECTDIR}/src/testSurf.o \
@@ -65,7 +64,8 @@ OBJECTFILES= \
 	${OBJECTDIR}/src/w5/exc504.o \
 	${OBJECTDIR}/src/w5/exc505.o \
 	${OBJECTDIR}/src/w5/exc506.o \
-	${OBJECTDIR}/src/w6/exc602.o
+	${OBJECTDIR}/src/w6/exc602.o \
+	${OBJECTDIR}/src/w6/exc606.o
 
 
 # C Compiler Flags
@@ -96,11 +96,6 @@ ${OBJECTDIR}/src/mutils.o: src/mutils.cpp
 	${MKDIR} -p ${OBJECTDIR}/src
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/mutils.o src/mutils.cpp
-
-${OBJECTDIR}/src/myHOUSE.o: src/myHOUSE.cpp 
-	${MKDIR} -p ${OBJECTDIR}/src
-	${RM} "$@.d"
-	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/myHOUSE.o src/myHOUSE.cpp
 
 ${OBJECTDIR}/src/myplot.o: src/myplot.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src
@@ -246,6 +241,11 @@ ${OBJECTDIR}/src/w6/exc602.o: src/w6/exc602.cpp
 	${MKDIR} -p ${OBJECTDIR}/src/w6
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/w6/exc602.o src/w6/exc602.cpp
+
+${OBJECTDIR}/src/w6/exc606.o: src/w6/exc606.cpp 
+	${MKDIR} -p ${OBJECTDIR}/src/w6
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/w6/exc606.o src/w6/exc606.cpp
 
 # Subprojects
 .build-subprojects:

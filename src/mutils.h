@@ -36,6 +36,8 @@ namespace mutils {
     bool isDDmatrix(const Mat_DP &A);
 
     void LUsolve(Mat_DP a, Vec_DP b, Vec_DP &x);
+    
+    double deriv(double (*f)(double), double x);
 
     void polyfit_LU(const Vec_DP &xdata, const Vec_DP &ydata, Vec_DP &coeffs, int degree);
 

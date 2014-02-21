@@ -38,13 +38,16 @@ namespace myplot {
     public:
         plot_data();
         plot_data(std::string const&);
+        plot_data(std::string const&, std::string const&);
         plot_data(plot_data const&);
         ~plot_data();
         void add_point(double, double);
         int size() const;
         bool empty() const;
+        bool has_legend() const;
         void set_style(std::string const&);
         char const* get_style() const;
+        char const* get_legend() const;
         double get_min_x() const;
         double get_max_x() const;
         double get_min_y() const;
@@ -55,6 +58,7 @@ namespace myplot {
         std::vector<point2d> points;
         double min_x, max_x, min_y, max_y;
         std::string style;
+        std::string legend;
     };
     
     class surf_data {
@@ -78,8 +82,11 @@ namespace myplot {
     
     typedef std::vector<plot_data> data_set;
     typedef std::vector<surf_data> surf_data_set;
-
+    
+    void generate_data(double(*)(double), data_set&, plot_data&, double, double, int);
     void plot(data_set data);
+    void generate_data(double(*)(double, double), surf_data_set&, surf_data&, double, double, double, double);
+    void surf(surf_data_set data, const char* title, int sample_size, int iso_sample_size);
     void surf(surf_data_set data, const char* title);
 
 }

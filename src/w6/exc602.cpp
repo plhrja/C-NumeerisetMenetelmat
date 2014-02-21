@@ -37,19 +37,4 @@ int main() {
 
     pinv_solve(A2, x2, b);
     cout << "x2 = " << x2 << endl;
-
-    myplot::data_set container();
-    myplot::plot_data line1("-");
-    myplot::plot_data line2("-");
-    myplot::plot_data line3("-");
-    myplot::plot_data point("+");
-    int start = -1;
-    int end = 1;
-    int points = 100;
-    for (int i = 0; i < points; i++) {
-        double x = start + ((double) i * (end - start)) / (points - 1);
-        for (int j = 0; j < points; j++) {
-            double y = start + ((double) j * (end - start)) / (points - 1);
-        }
-    }
 }

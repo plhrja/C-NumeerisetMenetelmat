@@ -11,20 +11,23 @@
 using namespace std;
 
 int main() {
-    int points = 30;
     double start = -1;
     double end = 1;
 
     myplot::surf_data_set container;
-    myplot::surf_data surface("-");
-    for (int i = 0; i < points; i++) {
-        double x = start + ((double) i * (end - start)) / (points - 1);
-        for (int j = 0; j < points; j++) {
-            double y = start + ((double) j * (end - start)) / (points - 1);
-            surface.add_point(x, y, x*y);
-        }
+    myplot::surf_data surface1("-");
+    myplot::surf_data surface2("-");
+    myplot::surf_data dots("+");
+    
+    myplot::generate_data([] (double x, double y) {return abs(y/(abs(x) + 1e-4));}, container, surface1, 
+            start, end, start, end);
+    myplot::generate_data([] (double x, double y) {return abs(x/(abs(y) + 1e-4));}, container, surface2, 
+            start, end, start, end);
+    for (int i = 0; i < 20; i++) {
+        dots.add_point(0, 0, i*2);
     }
-    container.push_back(surface);
-    myplot::surf(container, "f(x,y) = x*y");
+    
+    container.push_back(dots);
+    myplot::surf(container, "Testing mysurf");
 
 }

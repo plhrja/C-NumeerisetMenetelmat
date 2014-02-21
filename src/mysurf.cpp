@@ -10,6 +10,7 @@
 namespace myplot {
 
     static const std::string default_style = "-";
+    static const int default_sample_size = 40;
 
     point3d::point3d(double x, double y, double z) : x(x), y(y), z(z) {
     }
@@ -51,9 +52,6 @@ namespace myplot {
 
     void surf_data::add_point(double x, double y, double z) {
         points.push_back(point3d(x, y, z));
-        if(points.size() > 1 && points[points.size() - 1].getx() != points[points.size() - 2].getx()){
-            iso_sample_size = points.size();
-        }
     }
 
     int surf_data::size() const {
@@ -90,7 +88,24 @@ namespace myplot {
 
     static void unpack_surfsty(const char *style, std::string *ret);
     
-    void surf(surf_data_set data, const char* title) {
+    
+    void generate_data(double (*f)(double, double), surf_data_set &container,
+            surf_data  &data, double xmin, double xmax, double ymin, double ymax) {
+        if(xmax <= xmin || ymax <= ymin){
+            std::cerr << "Unbalanced range parameters!" << std::endl;
+        }
+        
+        for (int i = 0; i < default_sample_size ; i++) {
+            double x = xmin + ((double) i * (xmax - xmin))/(default_sample_size - 1);
+            for (int j = 0; j < default_sample_size; j++) {
+                double y = ymin + ((double) j * (ymax - ymin))/(default_sample_size - 1);
+                data.add_point(x, y, f(x, y));
+            }
+        }
+        container.push_back(data);
+    }
+    
+    void surf(surf_data_set data, const char* title, int sample_size, int iso_sample_size) {
         
         if(data.empty()) {
             std::cerr << "Nothing to plot..." << std::endl;
@@ -98,8 +113,8 @@ namespace myplot {
         }
         
         std::ofstream plotfile("surfplot.cmd");
-        plotfile << "set samples 30" << std::endl;
-        plotfile << "set isosamples 30" << std::endl;
+        plotfile << "set samples " << sample_size << std::endl;
+        plotfile << "set isosamples " << iso_sample_size <<std::endl;
         plotfile << "set hidden3d back offset 1 trianglepattern 3 undefined 1 altdiagonal bentover" << std::endl;
         plotfile << "set title \"" << title << "\"" << std::endl;
         plotfile << "splot";
@@ -115,17 +130,20 @@ namespace myplot {
             
             std::string ret;
             unpack_surfsty(data[i].get_style(), &ret);
-            plotfile << " \"" << filename << "\" " << ret;
+            plotfile << " \"" << filename << "\" " << ret << " notitle";
             if(i != data.size() - 1){
                  plotfile << ",";
             } else {
                 plotfile << std::endl;
             }
         }
-//        plotfile << "replot" << std::endl;
         plotfile << "pause -1" << std::endl;
         plotfile.close();
         system("gnuplot surfplot.cmd");
+    }
+    
+    void surf(surf_data_set data, const char* title){
+        surf(data, title, default_sample_size, default_sample_size);
     }
     
     static void unpack_surfsty(const char *style, std::string *ret) {

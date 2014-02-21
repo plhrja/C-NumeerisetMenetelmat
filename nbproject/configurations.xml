@@ -63,11 +63,10 @@
         <logicalFolder name="data" displayName="data" projectFiles="true">
         </logicalFolder>
         <itemPath>src/w6/exc602.cpp</itemPath>
+        <itemPath>src/w6/exc606.cpp</itemPath>
       </logicalFolder>
       <itemPath>src/mutils.cpp</itemPath>
       <itemPath>src/mutils.h</itemPath>
-      <itemPath>src/myHOUSE.cpp</itemPath>
-      <itemPath>src/myHOUSE.h</itemPath>
       <itemPath>src/myplot.cpp</itemPath>
       <itemPath>src/myplot.h</itemPath>
       <itemPath>src/mysurf.cpp</itemPath>
@@ -111,10 +110,6 @@
       </item>
       <item path="src/mutils.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="src/myHOUSE.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="src/myHOUSE.h" ex="false" tool="3" flavor2="0">
-      </item>
       <item path="src/myplot.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="src/myplot.h" ex="false" tool="3" flavor2="0">
@@ -190,6 +185,8 @@
       <item path="src/w5/exc506.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="src/w6/exc602.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/w6/exc606.cpp" ex="false" tool="1" flavor2="0">
       </item>
     </conf>
     <conf name="Release" type="1">
@@ -216,10 +213,6 @@
       </item>
       <item path="src/mutils.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="src/myHOUSE.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="src/myHOUSE.h" ex="false" tool="3" flavor2="0">
-      </item>
       <item path="src/myplot.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="src/myplot.h" ex="false" tool="3" flavor2="0">
@@ -295,6 +288,8 @@
       <item path="src/w5/exc506.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="src/w6/exc602.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/w6/exc606.cpp" ex="false" tool="1" flavor2="0">
       </item>
     </conf>
   </confs>

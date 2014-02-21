@@ -15,6 +15,7 @@
 namespace myplot {
 
     static const std::string default_style = "b-";
+    static const std::string default_legend = "";
 
     point2d::point2d(double x, double y) : x(x), y(y) {
     }
@@ -30,13 +31,16 @@ namespace myplot {
         return stream;
     }
 
-    plot_data::plot_data() : points(), style(default_style), min_x(INFINITY), max_x(-INFINITY), min_y(INFINITY), max_y(-INFINITY) {
+    plot_data::plot_data() : points(), style(default_style), legend(default_legend), min_x(INFINITY), max_x(-INFINITY), min_y(INFINITY), max_y(-INFINITY) {
     }
 
-    plot_data::plot_data(const std::string& style) : points(), style(style), min_x(INFINITY), max_x(-INFINITY), min_y(INFINITY), max_y(-INFINITY) {
+    plot_data::plot_data(const std::string& style) : points(), style(style), legend(default_legend), min_x(INFINITY), max_x(-INFINITY), min_y(INFINITY), max_y(-INFINITY) {
     }
 
-    plot_data::plot_data(const plot_data& other) : points(other.points), style(other.style), min_x(other.min_x), max_x(other.max_x), min_y(other.min_y), max_y(other.max_y) {
+    plot_data::plot_data(const std::string& style, const std::string& legend) : points(), style(style), legend(legend), min_x(INFINITY), max_x(-INFINITY), min_y(INFINITY), max_y(-INFINITY) {
+    }
+
+    plot_data::plot_data(const plot_data& other) : points(other.points), style(other.style), legend(other.legend), min_x(other.min_x), max_x(other.max_x), min_y(other.min_y), max_y(other.max_y) {
     }
 
     plot_data::~plot_data() {
@@ -61,6 +65,10 @@ namespace myplot {
     bool plot_data::empty() const {
         return points.empty();
     }
+    
+    bool plot_data::has_legend() const {
+        return !legend.empty();
+    }
 
     void plot_data::set_style(const std::string& s) {
         style = s;
@@ -68,6 +76,10 @@ namespace myplot {
     
     char const* plot_data::get_style() const {
         return style.c_str();
+    }
+    
+    char const* plot_data::get_legend() const {
+        return legend.c_str();
     }
 
     double plot_data::get_min_x() const {
@@ -97,6 +109,19 @@ namespace myplot {
                 stream << std::endl;
         }
         return stream;
+    }
+    
+    void generate_data(double (*f)(double), data_set &container, plot_data  &data, 
+            double xmin, double xmax, int points) {
+        if(xmax <= xmin || points <= 1){
+            std::cerr << "Unbalanced parameters!" << std::endl;
+        }
+        
+        for (int i = 0; i < points ; i++) {
+            double x = xmin + ((double) i * (xmax - xmin)) / (points - 1);
+            data.add_point(x, f(x));
+        }
+        container.push_back(data);
     }
     
     static void unpacksty(const char *style, char *ret);
@@ -136,7 +161,12 @@ namespace myplot {
             datafile.close();
             char ret[20];
             unpacksty(data[i].get_style(), ret);
-            plotfile << ", '" << filename << "' notitle w " << ret;
+            plotfile << ", '" << filename << "' "; 
+            if(data[i].has_legend()){
+                plotfile << "title \"" << data[i].get_legend() << "\" w " << ret;
+            } else {
+                plotfile << " notitle w " << ret;
+            }
         }
         
         plotfile << std::endl;
@@ -214,12 +244,5 @@ namespace myplot {
         ret[10 + i] = siz;
         ret[11 + i] = '\0';
     }
-    
-    static void unpack_surfsty(const char *style, std::string *ret) {
-        *ret = (style[0] == '.') ? "with dots" :
-                (style[0] == '+') ? "with points" : "with lines";
-    }
-    
-
 }
 

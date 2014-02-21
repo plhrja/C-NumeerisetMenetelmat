@@ -7,6 +7,7 @@
 #include <solve.h>
 #include "nr.h"
 #include "matutl02.h"
+#include "numdiff.h"
 #include "mutils.h"
 
 void myHOUSEsolve(Mat_DP &a, Vec_DP &b, Vec_DP &sol);
@@ -151,6 +152,16 @@ void mutils::LUsolve(Mat_DP a, Vec_DP b, Vec_DP &x) {
     NR::ludcmp(a, indx, p);
     NR::lubksb(a, indx, b);
     x = b;
+}
+
+double mutils::deriv(double (*f)(double), double x){
+    double h = 1e-5;
+    Vec_DP y(6), dy(6);
+    for (int i = 1; i <= 5; i++) {
+        y[i] = f(x + (i-3) * h);
+    }
+    numder(y, dy, h, 5);
+    return dy[3];
 }
 
 void mutils::polyfit_LU(const Vec_DP &xdata, const Vec_DP &ydata, Vec_DP &coeffs, int degree) {
