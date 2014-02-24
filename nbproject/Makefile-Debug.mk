@@ -65,7 +65,9 @@ OBJECTFILES= \
 	${OBJECTDIR}/src/w5/exc505.o \
 	${OBJECTDIR}/src/w5/exc506.o \
 	${OBJECTDIR}/src/w6/exc602.o \
-	${OBJECTDIR}/src/w6/exc606.o
+	${OBJECTDIR}/src/w6/exc603.o \
+	${OBJECTDIR}/src/w6/exc604.o \
+	${OBJECTDIR}/src/w6/exc605.o
 
 
 # C Compiler Flags
@@ -242,10 +244,20 @@ ${OBJECTDIR}/src/w6/exc602.o: src/w6/exc602.cpp
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/w6/exc602.o src/w6/exc602.cpp
 
-${OBJECTDIR}/src/w6/exc606.o: src/w6/exc606.cpp 
+${OBJECTDIR}/src/w6/exc603.o: src/w6/exc603.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src/w6
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/w6/exc606.o src/w6/exc606.cpp
+	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/w6/exc603.o src/w6/exc603.cpp
+
+${OBJECTDIR}/src/w6/exc604.o: src/w6/exc604.cpp 
+	${MKDIR} -p ${OBJECTDIR}/src/w6
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/w6/exc604.o src/w6/exc604.cpp
+
+${OBJECTDIR}/src/w6/exc605.o: src/w6/exc605.cpp 
+	${MKDIR} -p ${OBJECTDIR}/src/w6
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/w6/exc605.o src/w6/exc605.cpp
 
 # Subprojects
 .build-subprojects:

@@ -28,6 +28,6 @@ int main() {
     }
     
     container.push_back(dots);
-    myplot::surf(container, "Testing mysurf");
+    myplot::surf(container, "Testing mysurf", false);
 
 }

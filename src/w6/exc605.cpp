@@ -38,9 +38,10 @@ int main(){
     b2 = rdm(low, high);
 
     myplot::data_set container;
-    myplot::plot_data function("b-2", "function");
-    myplot::plot_data derivative("c-2", "derivative");
-    myplot::plot_data integral("g-2", "integral");
+    myplot::plot_data function("b-2", "f(x)");
+    myplot::plot_data derivative("c-2", "f'(x)");
+    myplot::plot_data integral("g-2", "g(x)");
+    myplot::plot_data x_axis("k-3");
     
     for (int i = 0; i < points; i++) {
         double x = x_low + ((double) i * (x_high - x_low))/(points - 1);
@@ -48,9 +49,13 @@ int main(){
         derivative.add_point(x, d_f(f, x));
         integral.add_point(x, integ_f(f, x));
     }
+    x_axis.add_point(x_low, 0);
+    x_axis.add_point(x_high, 0);
+    
     container.push_back(function);
     container.push_back(derivative);
     container.push_back(integral);
+    container.push_back(x_axis);
     
     cout << "a1 = " << a1 << endl;
     cout << "a2 = " << a2 << endl;

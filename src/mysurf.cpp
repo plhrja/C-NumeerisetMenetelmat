@@ -105,7 +105,7 @@ namespace myplot {
         container.push_back(data);
     }
     
-    void surf(surf_data_set data, const char* title, int sample_size, int iso_sample_size) {
+    void surf(surf_data_set data, const char* title, bool color, int sample_size, int iso_sample_size) {
         
         if(data.empty()) {
             std::cerr << "Nothing to plot..." << std::endl;
@@ -115,7 +115,14 @@ namespace myplot {
         std::ofstream plotfile("surfplot.cmd");
         plotfile << "set samples " << sample_size << std::endl;
         plotfile << "set isosamples " << iso_sample_size <<std::endl;
+        plotfile << "set xlabel \"X\" offset -2,-1" << std::endl;
+        plotfile << "set ylabel \"Y\" offset -2,-1" << std::endl;
+        plotfile << "set zlabel \"Z\" offset -1" << std::endl;
         plotfile << "set hidden3d back offset 1 trianglepattern 3 undefined 1 altdiagonal bentover" << std::endl;
+        if (color) {
+            plotfile << "set pm3d" << std::endl;
+            plotfile << "set style fill transparent solid 0.6" << std::endl;
+        }
         plotfile << "set title \"" << title << "\"" << std::endl;
         plotfile << "splot";
         
@@ -142,8 +149,8 @@ namespace myplot {
         system("gnuplot surfplot.cmd");
     }
     
-    void surf(surf_data_set data, const char* title){
-        surf(data, title, default_sample_size, default_sample_size);
+    void surf(surf_data_set data, const char* title, bool color){
+        surf(data, title, color, default_sample_size, default_sample_size);
     }
     
     static void unpack_surfsty(const char *style, std::string *ret) {
