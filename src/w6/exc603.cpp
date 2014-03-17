@@ -12,11 +12,6 @@ using namespace std;
 
 Vec_DP coeffs(6);
 
-double g(double x, double y){
-    return coeffs[0]*pow(x,2) + coeffs[1]*pow(y,2) + coeffs[2]*x*y + coeffs[3]*x +
-            coeffs[4]*y + coeffs[5];
-}
-
 void extract_data(Vec_DP &data_x, Vec_DP &data_y, Vec_DP &data_z, const Mat_DP &A){
     mutils::isolateCol(A, 0, data_x);
     mutils::isolateCol(A, 1, data_y);
@@ -41,11 +36,11 @@ void solve_system(Vec_DP &data_x, Vec_DP &data_y, Vec_DP &data_z){
 
 void print_cities(double (*f)(double x, double y)){
     printf("City\t\tx\ty\treal temp\tfrom model\n");
-    printf("Jyväskylä\t%-8.2f%-8.2f%-16.2f%-8.2f\n", 5.3, 3.4, 0.3, f(5.3,3.4));
-    printf("Mikkeli\t\t%-8.2f%-8.2f%-16.2f%-8.2f\n", 6.3, 2.7, 0.4, f(6.3,2.7));
-    printf("Lahti\t\t%-8.2f%-8.2f%-16.2f%-8.2f\n", 5.2, 1.6, 0.9, f(5.2,1.6));
-    printf("Pori\t\t%-8.2f%-8.2f%-16.2f%-8.2f\n", 2.7, 2.5, 1.0, f(2.7,2.5));
-    printf("Kuopio\t\t%-8.2f%-8.2f%-16.2f%-8.2f\n", 6.4, 4.2, 0.4, f(6.4,4.2));
+    printf("Jyväskylä\t%-8.2f%-8.2f%-16.2f%-8.2f\n", 5.3, 3.4, 0.5, f(5.3,3.4));
+    printf("Mikkeli\t\t%-8.2f%-8.2f%-16.2f%-8.2f\n", 6.3, 2.7, 1.2, f(6.3,2.7));
+    printf("Lahti\t\t%-8.2f%-8.2f%-16.2f%-8.2f\n", 5.2, 1.6, 0.2, f(5.2,1.6));
+    printf("Pori\t\t%-8.2f%-8.2f%-16.2f%-8.2f\n", 2.7, 2.5, 1.3, f(2.7,2.5));
+    printf("Kuopio\t\t%-8.2f%-8.2f%-16.2f%-8.2f\n", 6.4, 4.2, 0.5, f(6.4,4.2));
 }
 
 int main(){
@@ -54,6 +49,8 @@ int main(){
 
     extract_data(data_x, data_y, real_temps, temps);
     solve_system(data_x, data_y, real_temps);
+    auto g = [](double x, double y){return coeffs[0]*pow(x,2) + coeffs[1]*pow(y,2) + coeffs[2]*x*y + 
+            coeffs[3]*x + coeffs[4]*y + coeffs[5];};
     
     myplot::surf_data_set container;
     myplot::surf_data surface("-");

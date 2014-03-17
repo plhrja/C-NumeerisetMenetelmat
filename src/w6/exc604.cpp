@@ -12,12 +12,20 @@ using namespace std;
 
 Vec_DP coeffs(5);
 
-double f(double x){
+double f1(double x){
     double a = coeffs[0];
     double b = coeffs[1]*x + coeffs[3];
     double c = coeffs[2]*x + coeffs[4] - pow(x, 2);
     double disk = pow(b, 2) - (4*a*c);
     return (-b + sqrt(disk))/(2*a);
+}
+
+double f2(double x){
+    double a = coeffs[0];
+    double b = coeffs[1]*x + coeffs[3];
+    double c = coeffs[2]*x + coeffs[4] - pow(x, 2);
+    double disk = pow(b, 2) - (4*a*c);
+    return (-b - sqrt(disk))/(2*a);
 }
 
 void solve_system(Vec_DP xdata, Vec_DP ydata){
@@ -46,10 +54,12 @@ int main(){
     solve_system(xdata, ydata);
     
     myplot::data_set container;
-    myplot::plot_data function("b-2");
+    myplot::plot_data function1("b-2");
+    myplot::plot_data function2("b-2");
     myplot::plot_data points("k+2");
     
-    myplot::generate_data(f, container, function, -0.2, 1.1, 100);
+    myplot::generate_data(f1, container, function1, -0.489699, 1.13022, 500);
+    myplot::generate_data(f2, container, function2, -0.489699, 1.13022, 500);
     for (int i = 0; i < xdata.size(); i++) {
         points.add_point(xdata[i], ydata[i]);
     }

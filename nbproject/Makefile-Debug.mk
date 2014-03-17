@@ -67,7 +67,12 @@ OBJECTFILES= \
 	${OBJECTDIR}/src/w6/exc602.o \
 	${OBJECTDIR}/src/w6/exc603.o \
 	${OBJECTDIR}/src/w6/exc604.o \
-	${OBJECTDIR}/src/w6/exc605.o
+	${OBJECTDIR}/src/w6/exc605.o \
+	${OBJECTDIR}/src/w7/exc701.o \
+	${OBJECTDIR}/src/w7/exc702.o \
+	${OBJECTDIR}/src/w7/exc705.o \
+	${OBJECTDIR}/src/w8/exc802.o \
+	${OBJECTDIR}/src/w8/exc805.o
 
 
 # C Compiler Flags
@@ -258,6 +263,31 @@ ${OBJECTDIR}/src/w6/exc605.o: src/w6/exc605.cpp
 	${MKDIR} -p ${OBJECTDIR}/src/w6
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/w6/exc605.o src/w6/exc605.cpp
+
+${OBJECTDIR}/src/w7/exc701.o: src/w7/exc701.cpp 
+	${MKDIR} -p ${OBJECTDIR}/src/w7
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/w7/exc701.o src/w7/exc701.cpp
+
+${OBJECTDIR}/src/w7/exc702.o: src/w7/exc702.cpp 
+	${MKDIR} -p ${OBJECTDIR}/src/w7
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/w7/exc702.o src/w7/exc702.cpp
+
+${OBJECTDIR}/src/w7/exc705.o: src/w7/exc705.cpp 
+	${MKDIR} -p ${OBJECTDIR}/src/w7
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/w7/exc705.o src/w7/exc705.cpp
+
+${OBJECTDIR}/src/w8/exc802.o: src/w8/exc802.cpp 
+	${MKDIR} -p ${OBJECTDIR}/src/w8
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/w8/exc802.o src/w8/exc802.cpp
+
+${OBJECTDIR}/src/w8/exc805.o: src/w8/exc805.cpp 
+	${MKDIR} -p ${OBJECTDIR}/src/w8
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/w8/exc805.o src/w8/exc805.cpp
 
 # Subprojects
 .build-subprojects:

@@ -154,11 +154,11 @@ void mutils::LUsolve(Mat_DP a, Vec_DP b, Vec_DP &x) {
     x = b;
 }
 
-double mutils::deriv(double (*f)(double), double x){
+double mutils::deriv(double (*f)(double), double x) {
     double h = 1e-5;
     Vec_DP y(6), dy(6);
     for (int i = 1; i <= 5; i++) {
-        y[i] = f(x + (i-3) * h);
+        y[i] = f(x + (i - 3) * h);
     }
     numder(y, dy, h, 5);
     return dy[3];
@@ -227,6 +227,61 @@ void mutils::polyfit_HOUSE(const Vec_DP &xdata, const Vec_DP &ydata, Vec_DP &coe
         b[i] = ydata[i];
     }
     myHOUSEsolve(A, b, coeffs);
+}
+
+double mutils::newton_next_iter(double(*f)(double), double xn) {
+    return xn - (f(xn) / mutils::deriv(f, xn));
+}
+
+double mutils::newton(double(*f)(double), double init_guess, int max_iter, double tol) {
+    double xn = init_guess;
+    for (int i = 0; i < max_iter; i++) {
+        xn = mutils::newton_next_iter(f, xn);
+        if (abs(f(xn)) < tol) {
+            return xn;
+        }
+    }
+    std::cerr << "Iteration did not converge with given tolerance!" << std::endl;
+    return xn;
+}
+
+double mutils::newton_next_iter(double(*f)(double), double (*d_f)(double), double xn) {
+    return xn - (f(xn) / d_f(xn));
+}
+
+double mutils::newton(double(*f)(double), double (*d_f)(double), double init_guess, int max_iter, double tol) {
+    double xn = init_guess;
+    for (int i = 0; i < max_iter; i++) {
+        xn = mutils::newton_next_iter(f, d_f, xn);
+        if (abs(f(xn)) < tol) {
+            return xn;
+        }
+    }
+    std::cerr << "Iteration did not converge with given tolerance!" << std::endl;
+    return xn;
+}
+
+double mutils::barzilai_borwein(double(*f)(double), double init_guess, double tol, int max_iter) {
+    double x_old = init_guess;
+    double delta = init_guess;
+    for (int i = 0; i < max_iter; i++) {
+        double x_new = x_old - delta * mutils::deriv(f, x_old);
+
+        if (abs(x_old - x_new) < tol) {
+            return x_new;
+        }
+
+        double y = x_new - x_old;
+        double g = mutils::deriv(f, x_new) - mutils::deriv(f, x_old);
+        delta = (y * y) / (y * g);
+        x_old = x_new;
+    }
+    std::cerr << "Iteration did not converge with given tolerance!" << std::endl;
+    return x_old;
+}
+
+double mutils::barzilai_borwein(double(*f)(double), double init_guess) {
+    return mutils::barzilai_borwein(f, init_guess, 1e-8, 500);
 }
 
 //---------------------------------------------------private---------------------------------------------------

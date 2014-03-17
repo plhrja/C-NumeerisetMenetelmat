@@ -44,4 +44,16 @@ namespace mutils {
     void polyfit_SVD(const Vec_DP &xdata, const Vec_DP &ydata, Vec_DP &coeffs, int degree);
     
     void polyfit_HOUSE(const Vec_DP &xdata, const Vec_DP &ydata, Vec_DP &coeffs, int degree);
+    
+    double newton_next_iter(double (*f)(double), double xn);
+    
+    double newton(double (*f)(double), double init_guess, int max_iter, double tol);
+    
+    double newton_next_iter(double (*f)(double), double (*d_f)(double), double xn);
+    
+    double newton(double (*f)(double), double (*d_f)(double), double init_guess, int max_iter, double tol);
+    
+    double barzilai_borwein(double (*f)(double), double init_guess);
+    
+    double barzilai_borwein(double (*f)(double), double init_guess, double tol, int max_iter);
 }

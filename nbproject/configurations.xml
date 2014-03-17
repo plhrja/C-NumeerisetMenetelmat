@@ -67,6 +67,17 @@
         <itemPath>src/w6/exc604.cpp</itemPath>
         <itemPath>src/w6/exc605.cpp</itemPath>
       </logicalFolder>
+      <logicalFolder name="w7" displayName="w7" projectFiles="true">
+        <itemPath>src/w7/exc701.cpp</itemPath>
+        <itemPath>src/w7/exc702.cpp</itemPath>
+        <itemPath>src/w7/exc705.cpp</itemPath>
+      </logicalFolder>
+      <logicalFolder name="w8" displayName="w8" projectFiles="true">
+        <logicalFolder name="data" displayName="data" projectFiles="true">
+        </logicalFolder>
+        <itemPath>src/w8/exc802.cpp</itemPath>
+        <itemPath>src/w8/exc805.cpp</itemPath>
+      </logicalFolder>
       <itemPath>src/mutils.cpp</itemPath>
       <itemPath>src/mutils.h</itemPath>
       <itemPath>src/myplot.cpp</itemPath>
@@ -94,6 +105,8 @@
     <Elem>src/w4</Elem>
     <Elem>src/w5</Elem>
     <Elem>src/w6</Elem>
+    <Elem>src/w7</Elem>
+    <Elem>src/w8</Elem>
   </sourceRootList>
   <projectmakefile>Makefile</projectmakefile>
   <confs>
@@ -193,6 +206,16 @@
       <item path="src/w6/exc604.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="src/w6/exc605.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/w7/exc701.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/w7/exc702.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/w7/exc705.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/w8/exc802.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/w8/exc805.cpp" ex="false" tool="1" flavor2="0">
       </item>
     </conf>
     <conf name="Release" type="1">
@@ -300,6 +323,16 @@
       <item path="src/w6/exc604.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="src/w6/exc605.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/w7/exc701.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/w7/exc702.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/w7/exc705.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/w8/exc802.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/w8/exc805.cpp" ex="false" tool="1" flavor2="0">
       </item>
     </conf>
   </confs>
