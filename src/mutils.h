@@ -9,6 +9,9 @@
 
 namespace mutils {
 
+    typedef std::vector<double(*)(const Vec_DP &)> Fun_vec;
+    
+    
     void isolateRow(const Mat_DP& mtr, int row, Mat_DP& rowMtr);
 
     void isolateCol(const Mat_DP& mtr, int col, Mat_DP& colMtr);
@@ -52,6 +55,12 @@ namespace mutils {
     double newton_next_iter(double (*f)(double), double (*d_f)(double), double xn);
     
     double newton(double (*f)(double), double (*d_f)(double), double init_guess, int max_iter, double tol);
+    
+    void generate_Jacobian(Fun_vec f , Mat_DP &jacob, const Vec_DP &x);
+    
+    Vec_DP newton_next_iter(Fun_vec f, const Vec_DP &xn);
+    
+    Vec_DP newton(Fun_vec f, Vec_DP init_guess, int max_iter, double tol);
     
     double barzilai_borwein(double (*f)(double), double init_guess);
     

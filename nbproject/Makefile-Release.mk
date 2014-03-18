@@ -72,7 +72,8 @@ OBJECTFILES= \
 	${OBJECTDIR}/src/w7/exc702.o \
 	${OBJECTDIR}/src/w7/exc705.o \
 	${OBJECTDIR}/src/w8/exc802.o \
-	${OBJECTDIR}/src/w8/exc805.o
+	${OBJECTDIR}/src/w8/exc805.o \
+	${OBJECTDIR}/src/w9/exc904.o
 
 
 # C Compiler Flags
@@ -288,6 +289,11 @@ ${OBJECTDIR}/src/w8/exc805.o: src/w8/exc805.cpp
 	${MKDIR} -p ${OBJECTDIR}/src/w8
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/w8/exc805.o src/w8/exc805.cpp
+
+${OBJECTDIR}/src/w9/exc904.o: src/w9/exc904.cpp 
+	${MKDIR} -p ${OBJECTDIR}/src/w9
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/w9/exc904.o src/w9/exc904.cpp
 
 # Subprojects
 .build-subprojects:

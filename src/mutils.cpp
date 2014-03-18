@@ -261,6 +261,68 @@ double mutils::newton(double(*f)(double), double (*d_f)(double), double init_gue
     return xn;
 }
 
+void mutils::generate_Jacobian(Fun_vec f, Mat_DP &jacob, const Vec_DP &x){
+    double n = x.size();
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < n; j++) {
+            Vec_DP temp_x(x);
+            auto f1 = [&] (double x) {
+                temp_x[j] = x;
+                return (*f[i])(temp_x);
+            };
+            
+            //derivate
+            double h = 1e-5;
+            Vec_DP y(6), dy(6);
+            for (int i = 1; i <= 5; i++) {
+                y[i] = f1(x[j] + (i - 3) * h);
+            }
+            numder(y, dy, h, 5);
+            
+            jacob[i][j] = dy[3];
+        }
+    }
+}
+
+Vec_DP mutils::newton_next_iter(Fun_vec f, const Vec_DP &x){
+    double n = x.size();
+    Vec_DP xn(n);
+    Mat_DP jacob(n, n), inv_jacob(n, n);
+    
+    mutils::generate_Jacobian(f, jacob, x);
+    invmat(jacob, inv_jacob);
+    
+    for (int i = 0; i < n; i++) {
+        double jacob_f_prod = 0;
+        for (int j = 0; j < n; j++) {
+            jacob_f_prod += inv_jacob[i][j] * (*f[j])(x);
+        }
+        
+        xn[i] = x[i] - jacob_f_prod;
+    }
+    return xn;
+}
+
+Vec_DP mutils::newton(Fun_vec f, Vec_DP init_guess, int max_iter, double tol){
+    Vec_DP xn(init_guess);
+    for (int i = 0; i < max_iter; i++) {
+        xn = newton_next_iter(f, xn);
+        
+        bool convergence = true;
+        for (int i = 0; i < xn.size(); i++) {
+            if(abs((*f[i])(xn)) > tol){
+                convergence = false;
+                break;
+            }
+        }
+        if(convergence){
+            return xn;
+        }
+    }
+    std::cerr << "Iteration did not converge with given tolerance!" << std::endl;
+    return xn;
+}
+
 double mutils::barzilai_borwein(double(*f)(double), double init_guess, double tol, int max_iter) {
     double x_old = init_guess;
     double delta = init_guess;
