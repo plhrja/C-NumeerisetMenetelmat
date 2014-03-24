@@ -271,7 +271,7 @@ void mutils::generate_Jacobian(Fun_vec f, Mat_DP &jacob, const Vec_DP &x){
                 return (*f[i])(temp_x);
             };
             
-            //derivate
+            //differentiation
             double h = 1e-5;
             Vec_DP y(6), dy(6);
             for (int i = 1; i <= 5; i++) {

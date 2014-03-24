@@ -11,7 +11,6 @@ namespace mutils {
 
     typedef std::vector<double(*)(const Vec_DP &)> Fun_vec;
     
-    
     void isolateRow(const Mat_DP& mtr, int row, Mat_DP& rowMtr);
 
     void isolateCol(const Mat_DP& mtr, int col, Mat_DP& colMtr);

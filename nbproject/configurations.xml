@@ -81,6 +81,7 @@
       <logicalFolder name="w9" displayName="w9" projectFiles="true">
         <logicalFolder name="data" displayName="data" projectFiles="true">
         </logicalFolder>
+        <itemPath>src/w9/exc901.cpp</itemPath>
         <itemPath>src/w9/exc904.cpp</itemPath>
       </logicalFolder>
       <itemPath>src/mutils.cpp</itemPath>
@@ -223,6 +224,8 @@
       </item>
       <item path="src/w8/exc805.cpp" ex="false" tool="1" flavor2="0">
       </item>
+      <item path="src/w9/exc901.cpp" ex="false" tool="1" flavor2="0">
+      </item>
       <item path="src/w9/exc904.cpp" ex="false" tool="1" flavor2="0">
       </item>
     </conf>
@@ -341,6 +344,8 @@
       <item path="src/w8/exc802.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="src/w8/exc805.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/w9/exc901.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="src/w9/exc904.cpp" ex="false" tool="1" flavor2="0">
       </item>

@@ -73,6 +73,7 @@ OBJECTFILES= \
 	${OBJECTDIR}/src/w7/exc705.o \
 	${OBJECTDIR}/src/w8/exc802.o \
 	${OBJECTDIR}/src/w8/exc805.o \
+	${OBJECTDIR}/src/w9/exc901.o \
 	${OBJECTDIR}/src/w9/exc904.o
 
 
@@ -289,6 +290,11 @@ ${OBJECTDIR}/src/w8/exc805.o: src/w8/exc805.cpp
 	${MKDIR} -p ${OBJECTDIR}/src/w8
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/w8/exc805.o src/w8/exc805.cpp
+
+${OBJECTDIR}/src/w9/exc901.o: src/w9/exc901.cpp 
+	${MKDIR} -p ${OBJECTDIR}/src/w9
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/w9/exc901.o src/w9/exc901.cpp
 
 ${OBJECTDIR}/src/w9/exc904.o: src/w9/exc904.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src/w9
