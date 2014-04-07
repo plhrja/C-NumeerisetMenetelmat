@@ -44,6 +44,9 @@ OBJECTFILES= \
 	${OBJECTDIR}/src/w1/exc104.o \
 	${OBJECTDIR}/src/w1/exc104.o \
 	${OBJECTDIR}/src/w1/exc105.o \
+	${OBJECTDIR}/src/w11/exc1103.o \
+	${OBJECTDIR}/src/w11/exc1104.o \
+	${OBJECTDIR}/src/w11/exc1105.o \
 	${OBJECTDIR}/src/w2/exc201.o \
 	${OBJECTDIR}/src/w2/exc202.o \
 	${OBJECTDIR}/src/w2/exc203.o \
@@ -145,6 +148,21 @@ ${OBJECTDIR}/src/w1/exc105.o: src/w1/exc105.c
 	${MKDIR} -p ${OBJECTDIR}/src/w1
 	${RM} "$@.d"
 	$(COMPILE.c) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/w1/exc105.o src/w1/exc105.c
+
+${OBJECTDIR}/src/w11/exc1103.o: src/w11/exc1103.cpp 
+	${MKDIR} -p ${OBJECTDIR}/src/w11
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/w11/exc1103.o src/w11/exc1103.cpp
+
+${OBJECTDIR}/src/w11/exc1104.o: src/w11/exc1104.cpp 
+	${MKDIR} -p ${OBJECTDIR}/src/w11
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/w11/exc1104.o src/w11/exc1104.cpp
+
+${OBJECTDIR}/src/w11/exc1105.o: src/w11/exc1105.cpp 
+	${MKDIR} -p ${OBJECTDIR}/src/w11
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/w11/exc1105.o src/w11/exc1105.cpp
 
 ${OBJECTDIR}/src/w2/exc201.o: src/w2/exc201.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src/w2

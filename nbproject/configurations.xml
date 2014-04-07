@@ -20,6 +20,13 @@
         <itemPath>src/w1/exc104.cpp</itemPath>
         <itemPath>src/w1/exc105.c</itemPath>
       </logicalFolder>
+      <logicalFolder name="w11" displayName="w11" projectFiles="true">
+        <logicalFolder name="data" displayName="data" projectFiles="true">
+        </logicalFolder>
+        <itemPath>src/w11/exc1103.cpp</itemPath>
+        <itemPath>src/w11/exc1104.cpp</itemPath>
+        <itemPath>src/w11/exc1105.cpp</itemPath>
+      </logicalFolder>
       <logicalFolder name="w2" displayName="w2" projectFiles="true">
         <itemPath>src/w2/A202.mat</itemPath>
         <itemPath>src/w2/a</itemPath>
@@ -114,6 +121,7 @@
     <Elem>src/w7</Elem>
     <Elem>src/w8</Elem>
     <Elem>src/w9</Elem>
+    <Elem>src/w11</Elem>
   </sourceRootList>
   <projectmakefile>Makefile</projectmakefile>
   <confs>
@@ -151,6 +159,12 @@
       <item path="src/w1/exc104.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="src/w1/exc105.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="src/w11/exc1103.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/w11/exc1104.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/w11/exc1105.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="src/w2/A202.mat" ex="false" tool="3" flavor2="0">
       </item>
@@ -272,6 +286,12 @@
       <item path="src/w1/exc104.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="src/w1/exc105.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="src/w11/exc1103.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/w11/exc1104.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/w11/exc1105.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="src/w2/A202.mat" ex="false" tool="3" flavor2="0">
       </item>

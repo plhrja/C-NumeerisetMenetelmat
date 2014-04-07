@@ -10,9 +10,13 @@
 
 using namespace std;
 
-void printResult(const Vec_DP &vec){
+void printResult(const Vec_DP &vec, const mutils::Fun_vec &system){
     for (int i = 0; i < vec.size(); i++) {
         cout << "x" << i + 1 << " = " << vec[i] << endl;
+    }
+    cout << endl;
+    for (int i = 0; i < system.size(); i++) {
+	cout << "f" << i + 1 << "(x) = "  << (*system[i])(vec) << endl;
     }
 }
 
@@ -36,8 +40,8 @@ int main(){
     Vec_DP case_B = mutils::newton(system_B, init_guess_B, 1000, 1e-8);
     
     cout << "Case a)" << endl;
-    printResult(case_A);
+    printResult(case_A, system_A);
     
     cout << endl << "Case b)" << endl;
-    printResult(case_B);
+    printResult(case_B, system_B);
 }
