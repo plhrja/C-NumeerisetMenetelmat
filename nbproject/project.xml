@@ -21,6 +21,7 @@
                 <sourceRootElem>src/w8</sourceRootElem>
                 <sourceRootElem>src/w9</sourceRootElem>
                 <sourceRootElem>src/w11</sourceRootElem>
+                <sourceRootElem>src/sandbox</sourceRootElem>
             </sourceRootList>
             <confList>
                 <confElem>

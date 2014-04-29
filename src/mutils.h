@@ -61,6 +61,8 @@ namespace mutils {
     
     Vec_DP newton(Fun_vec f, Vec_DP init_guess, int max_iter, double tol);
     
+    Vec_DP steepest_descent(double (*f)(const Vec_DP&), Vec_DP init_guess, int max_iter, double tol);
+    
     double barzilai_borwein(double (*f)(double), double init_guess);
     
     double barzilai_borwein(double (*f)(double), double init_guess, double tol, int max_iter);

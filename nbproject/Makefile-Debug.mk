@@ -38,6 +38,7 @@ OBJECTFILES= \
 	${OBJECTDIR}/src/mutils.o \
 	${OBJECTDIR}/src/myplot.o \
 	${OBJECTDIR}/src/mysurf.o \
+	${OBJECTDIR}/src/sandbox/test_steepest_descent.o \
 	${OBJECTDIR}/src/testSurf.o \
 	${OBJECTDIR}/src/w1/exc101.o \
 	${OBJECTDIR}/src/w1/exc102.o \
@@ -118,6 +119,11 @@ ${OBJECTDIR}/src/mysurf.o: src/mysurf.cpp
 	${MKDIR} -p ${OBJECTDIR}/src
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/mysurf.o src/mysurf.cpp
+
+${OBJECTDIR}/src/sandbox/test_steepest_descent.o: src/sandbox/test_steepest_descent.cpp 
+	${MKDIR} -p ${OBJECTDIR}/src/sandbox
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/sandbox/test_steepest_descent.o src/sandbox/test_steepest_descent.cpp
 
 ${OBJECTDIR}/src/testSurf.o: src/testSurf.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src

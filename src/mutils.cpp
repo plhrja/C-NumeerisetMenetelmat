@@ -323,6 +323,8 @@ Vec_DP mutils::newton(Fun_vec f, Vec_DP init_guess, int max_iter, double tol){
     return xn;
 }
 
+Vec_DP mutils::steepest_descent(double (*f)(const Vec_DP&), Vec_DP init_guess, int max_iter, double tol);
+
 double mutils::barzilai_borwein(double(*f)(double), double init_guess, double tol, int max_iter) {
     double x_old = init_guess;
     double delta = init_guess;
